@@ -1,0 +1,19 @@
+<div id="login" ng-show="loginStatus">
+        <form>
+            <fieldset>
+                <p><span class="fontawesome-user"></span>
+                <input type="text" value="user@gmail.com" onBlur="if(this.value == '') this.value = 'user@gmail.com'" onFocus="if(this.value == 'user@gmail.com') this.value = ''" required>
+                </p> 
+        
+                <p><span class="fontawesome-lock"></span>
+                <input type="password"  value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required>
+                </p>
+                <p><input type="submit" value="Login"></p>
+            </fieldset>
+        </form>
+        
+        <p>Don't have account?
+        <a href="#">Registration</a>
+        <span class="fontawesome-arrow-right"></span>
+        </p>
+    </div>

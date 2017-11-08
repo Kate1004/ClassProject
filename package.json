@@ -1,0 +1,24 @@
+{
+  "name": "newshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "email-templates": "^2.7.1",
+    "express": "^4.15.4",
+    "handlebars": "^4.0.10",
+    "lodash": "^4.17.4",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.1.0",
+    "nodemon": "^1.11.0",
+    "twilio": "^3.6.7"
+  }
+}

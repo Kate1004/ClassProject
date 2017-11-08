@@ -1,0 +1,158 @@
+/*--------------------АВТОРИЗАЦІЯ---------------*/
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+@import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
+
+/* ---------- FONTAWESOME ---------- */
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* ---------- GENERAL ---------- */
+
+body {
+	background-color: lightgrey;
+	color: #606468;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+a {
+	color: #eee;
+	text-decoration: none;
+    color: cadetblue; 
+    font-size: 15px ;
+}
+
+a:hover {
+	text-decoration: underline;
+    color: #d44179; 
+}
+
+input {
+	border: none;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.5em;
+}
+
+/* ---------- LOGIN ---------- */
+
+#login {
+	margin: 150px auto;
+	width: 280px;
+}
+
+#login form span {
+	background-color: #363b41;
+	border-radius: 3px 0px 0px 3px;
+	-moz-border-radius: 3px 0px 0px 3px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	color: #606468;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+
+#login form input {
+	height: 50px;
+	outline:none;
+}
+
+#login form input[type="text"], input[type="password"] {
+	background-color: #3b4148;
+	border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	-webkit-border-radius: 0px 3px 3px 0px;
+	color: #606468;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 198px;
+}
+
+#login form input:focus {
+	color:#fff;
+}
+
+#login form input[type="submit"] {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: cadetblue;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 2em;
+	text-transform: uppercase;
+	cursor:pointer;
+	width: 280px;
+}
+
+#login form input[type="submit"]:hover {
+	background-color: #d44179;
+}
+
+#login > p {
+	text-align: center;
+}
+
+#login > p span {
+	padding-left: 5px;
+}
+
+/* ---------- REGISTRATION ---------- */
+#registr {
+    padding: 50px;
+	margin: 150px auto;
+	width: 280px;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
+}
+
+#registr p{
+    width: 80px;
+    font-family: Arial;
+	font-size: 16px;
+    margin-top: 15px;
+}
+
+#registr input{
+	height: 50px;
+	outline:none;
+}
+#registr input[type="text"]:focus {
+	color:#fff;
+}
+#registr input[type="password"]:focus {
+	color:#fff;
+}
+
+#registr input[type="text"], input[type="password"]{
+	background-color: #3b4148;
+	border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	-webkit-border-radius: 0px 3px 3px 0px;
+	color: #606468;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 198px;
+}
+#registr input[type="submit"] {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: cadetblue;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 2em;
+	text-transform: uppercase;
+	cursor:pointer;
+	width: 280px;
+}
+#registr input[type="submit"]:hover {
+	background-color: #d44179;
+}
