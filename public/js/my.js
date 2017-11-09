@@ -1,8 +1,8 @@
 //Під`єднюємо ангуляр
-var app = angular.module('app', ['ngRoute']);
+const app = angular.module('app', ['ngRoute', 'ngDialog']);
 
 //Створюємо контроллер
-app.controller('myCtrl', function ($scope) {});
+app.controller('myCtrl', function ($scope, $http, ngDialog) {});
 
 
 //Директива Login
@@ -10,7 +10,7 @@ app.directive('loginBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/login.html',
-        controller: function ($scope) {
+        controller: function ($scope, ngDialog) {
             $scope.loginStatus = true;
             $scope.registrStatus = false;
             //Кнопка Реєстрації
@@ -18,6 +18,26 @@ app.directive('loginBlock', function () {
                 $scope.loginStatus = false;
                 $scope.registrStatus = true;
             }
+
+            //при натискані кнопки Registration ngDialog
+            $scope.registerDialWind = function() {
+                ngDialog.open({
+                    template: "/template/registr.html",
+                    scope: $scope,
+                    controller: function() {
+                        $scope.loginStatus = false;
+                        $scope.registerStatus = true;
+
+                        $scope.registerAcc = function() {
+                            $scope.loginStatus = true;
+                            $scope.registerStatus = false;
+                        }
+
+                    }
+                })
+            }
+
+
         }
     }
 });

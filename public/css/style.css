@@ -1,166 +1,172 @@
 /*--------------------АВТОРИЗАЦІЯ---------------*/
 
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
-
 @import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
-
 /* ---------- FONTAWESOME ---------- */
 
 [class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
+    font-family: 'FontAwesome', sans-serif;
 }
 
 /* ---------- GENERAL ---------- */
 
 body {
-	background-color: lightgrey;
-	color: #606468;
-	font-family: 'Open Sans', Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5em;
+    background-color: lightgrey;
+    color: #606468;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
 }
 
 a {
-	color: #eee;
-	text-decoration: none;
-    color: cadetblue; 
-    font-size: 15px ;
+    color: #eee;
+    text-decoration: none;
+    color: cadetblue;
+    font-size: 15px;
 }
 
 a:hover {
-	text-decoration: underline;
-    color: #d44179; 
+    text-decoration: underline;
+    color: #d44179;
 }
 
 input {
-	border: none;
-	font-family: 'Open Sans', Arial, sans-serif;
-	font-size: 15px;
-	line-height: 1.5em;
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5em;
 }
 
 /* ---------- LOGIN ---------- */
 
 #login {
-	margin: 150px auto;
-	width: 280px;
+    margin: 150px auto;
+    width: 280px;
 }
 
 #login form span {
-	background-color: #363b41;
-	border-radius: 3px 0px 0px 3px;
-	-moz-border-radius: 3px 0px 0px 3px;
-	-webkit-border-radius: 3px 0px 0px 3px;
-	color: #606468;
-	display: block;
-	float: left;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	width: 50px;
+    background-color: #363b41;
+    border-radius: 3px 0px 0px 3px;
+    -moz-border-radius: 3px 0px 0px 3px;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    color: #606468;
+    display: block;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
 }
 
 #login form input {
-	height: 50px;
-	outline:none;
+    height: 50px;
+    outline: none;
 }
 
 #login form input[type="text"], input[type="password"] {
-	background-color: #3b4148;
-	border-radius: 0px 3px 3px 0px;
-	-moz-border-radius: 0px 3px 3px 0px;
-	-webkit-border-radius: 0px 3px 3px 0px;
-	color: #606468;
-	margin-bottom: 1em;
-	padding: 0 16px;
-	width: 198px;
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    -moz-border-radius: 0px 3px 3px 0px;
+    -webkit-border-radius: 0px 3px 3px 0px;
+    color: #606468;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 198px;
 }
 
 #login form input:focus {
-	color:#fff;
+    color: #fff;
 }
 
 #login form input[type="submit"] {
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	background-color: cadetblue;
-	color: #eee;
-	font-weight: bold;
-	margin-bottom: 2em;
-	text-transform: uppercase;
-	cursor:pointer;
-	width: 280px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: cadetblue;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 280px;
 }
 
 #login form input[type="submit"]:hover {
-	background-color: #d44179;
+    background-color: #d44179;
 }
 
-#login > p {
-	text-align: center;
+#login>p {
+    text-align: center;
 }
 
-#login > p span {
-	padding-left: 5px;
+#login>p span {
+    padding-left: 5px;
 }
 
 /* ---------- REGISTRATION ---------- */
+
 #registr {
+    position: absolute;
+    left: 525px;
+    top: 0px;
+    background-color: lightgrey;
     padding: 50px;
-	margin: 150px auto;
-	width: 280px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
+    margin: 150px auto;
+    width: 280px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
 }
 
-#registr p{
+#registr p {
     width: 80px;
     font-family: Arial;
-	font-size: 16px;
+    font-size: 16px;
     margin-top: 15px;
 }
 
-#registr input{
-	height: 50px;
-	outline:none;
-}
-#registr input[type="text"]:focus {
-	color:#fff;
-}
-#registr input[type="password"]:focus {
-	color:#fff;
+#registr input {
+    height: 50px;
+    outline: none;
 }
 
-#registr input[type="text"], input[type="password"]{
-	background-color: #3b4148;
-	border-radius: 0px 3px 3px 0px;
-	-moz-border-radius: 0px 3px 3px 0px;
-	-webkit-border-radius: 0px 3px 3px 0px;
-	color: #606468;
-	margin-bottom: 1em;
-	padding: 0 16px;
-	width: 198px;
+#registr input[type="text"]:focus {
+    color: #fff;
 }
+
+#registr input[type="password"]:focus {
+    color: #fff;
+}
+
+#registr input[type="text"], input[type="password"] {
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    -moz-border-radius: 0px 3px 3px 0px;
+    -webkit-border-radius: 0px 3px 3px 0px;
+    color: #606468;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 198px;
+}
+
 #registr input[type="submit"] {
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	background-color: cadetblue;
-	color: #eee;
-	font-weight: bold;
-	margin-bottom: 2em;
-	text-transform: uppercase;
-	cursor:pointer;
-	width: 280px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: cadetblue;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 280px;
 }
+
 #registr input[type="submit"]:hover {
-	background-color: #d44179;
+    background-color: #d44179;
 }
 
 /*-----------------MENU---------------*/
 
 .top-menu {
-   
     height: 50px;
     list-style: none;
     background-color: #606468;
@@ -190,8 +196,8 @@ input {
     transition: all 0.3s ease;
 }
 
-
 /*-------------БОКОВЕ МЕНЮ ----------*/
+
 .nav {
     width: 320px;
     min-width: 320px;
@@ -224,55 +230,51 @@ input {
     -moz-transition: color .25s ease-in-out;
     transition: color .25s ease-in-out;
 }
+
 .nav-toggle:after {
     content: '\2630';
     text-decoration: none;
 }
+
 .nav-toggle:hover {
     color: #fff;
 }
 
 /* Когда флажок установлен, открывается панель используем псевдокласс:checked */
 
-[id='nav-toggle']:checked ~ .nav {
+[id='nav-toggle']:checked~.nav {
     left: 0;
-    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
 }
 
-
 /*изменение символа переключателя, (X)*/
 
-[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+[id='nav-toggle']:checked~.nav>.nav-toggle:after {
     content: '\2715';
 }
-
 
 /*на  мобильні екрани */
 
 @media screen and (min-width: 320px) {
-    html,
-    body {
-      margin: 0;
-      overflow-x: hidden;
+    html, body {
+        margin: 0;
+        overflow-x: hidden;
     }
 }
 
 @media screen and (max-width: 320px) {
-    html,
-    body {
-      margin: 0;
-      overflow-x: hidden;
+    html, body {
+        margin: 0;
+        overflow-x: hidden;
     }
     .nav {
-      width: 100%;
-      box-shadow: none
+        width: 100%;
+        box-shadow: none
     }
 }
-
-
 
 /**
  * формируем непосредственно само меню
@@ -280,7 +282,7 @@ input {
  * прикрутим трансфомации и плавные переходы
  */
 
-.nav > ul {
+.nav>ul {
     display: block;
     margin: 0;
     padding: 0;
@@ -288,7 +290,7 @@ input {
     margin-top: 40px;
 }
 
-.nav > ul > li {
+.nav>ul>li {
     line-height: 3.5;
     opacity: 0;
     -webkit-transform: translateX(-50%);
@@ -301,7 +303,7 @@ input {
     transition: opacity .5s .1s, transform .5s .1s;
 }
 
-[id='nav-toggle']:checked ~ .nav > ul > li {
+[id='nav-toggle']:checked~.nav>ul>li {
     opacity: 1;
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
@@ -309,45 +311,43 @@ input {
     transform: translateX(0);
 }
 
-
 /* определяем интервалы появления пунктов меню */
 
-.nav > ul > li:nth-child(2) {
+.nav>ul>li:nth-child(2) {
     -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
     transition: opacity .5s .2s, transform .5s .2s;
 }
 
-.nav > ul > li:nth-child(3) {
+.nav>ul>li:nth-child(3) {
     -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
     transition: opacity .5s .3s, transform .5s .3s;
 }
 
-.nav > ul > li:nth-child(4) {
+.nav>ul>li:nth-child(4) {
     -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
     transition: opacity .5s .4s, transform .5s .4s;
 }
 
-.nav > ul > li:nth-child(5) {
+.nav>ul>li:nth-child(5) {
     -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
     transition: opacity .5s .5s, transform .5s .5s;
 }
 
-.nav > ul > li:nth-child(6) {
+.nav>ul>li:nth-child(6) {
     -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
     transition: opacity .5s .6s, transform .5s .6s;
 }
 
-.nav > ul > li:nth-child(7) {
+.nav>ul>li:nth-child(7) {
     -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
     transition: opacity .5s .7s, transform .5s .7s;
 }
-
 
 /**
  * оформление ссылок пунктов меню
  */
 
-.nav > ul > li > a {
+.nav>ul>li>a {
     display: inline-block;
     position: relative;
     padding: 0;
@@ -363,23 +363,20 @@ input {
     transition: color .5s ease, padding .5s ease;
 }
 
-
 /**
  * состояние ссылок меню при наведении
  */
 
-.nav > ul > li > a:hover,
-.nav > ul > li > a:focus {
+.nav>ul>li>a:hover, .nav>ul>li>a:focus {
     color: white;
     padding-left: 15px;
 }
-
 
 /**
  * линия подчеркивания ссылок меню
  */
 
-.nav > ul > li > a:before {
+.nav>ul>li>a:before {
     content: '';
     display: block;
     position: absolute;
@@ -391,7 +388,7 @@ input {
     transition: width 0s ease;
 }
 
-.nav > ul > li > a:after {
+.nav>ul>li>a:after {
     content: '';
     display: block;
     position: absolute;
@@ -404,28 +401,26 @@ input {
     transition: width .5s ease;
 }
 
-
 /**
- * анимируем линию подчеркивания 
+ * анимируем линию подчеркивания
  * ссылок при наведении
  */
 
-.nav > ul > li > a:hover:before {
+.nav>ul>li>a:hover:before {
     width: 0%;
     background: #3bc1a0;
     -webkit-transition: width .5s ease;
     transition: width .5s ease;
 }
 
-.nav > ul > li > a:hover:after {
+.nav>ul>li>a:hover:after {
     width: 0%;
     background: transparent;
     -webkit-transition: width 0s ease;
     transition: width 0s ease;
 }
 
-
-/* фон затемнения на основной контент 
+/* фон затемнения на основной контент
  * при этом элементы блокируютя
  * спорная такая фича, если оно вам надо
  * просто раскомментируйте
@@ -452,26 +447,3 @@ input {
     transition: opacity .5s, visibility .5s;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
