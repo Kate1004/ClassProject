@@ -10,10 +10,33 @@
     <script src="js/my.js"></script>
 </head>
 <body ng-controller="myCtrl">
+ 
+ <input type="checkbox" id="nav-toggle" hidden>
+  <label for="nav-toggle" class="nav-toggle" onclick>
+       <ul>
+           <li><a href="#1">Home</a>
+           <li><a href="#2">Edit</a>
+           <li><a href="#3">Total</a>
+           <li><a href="#4">Income</a>
+           <li><a href="#5">Expenses</a>
+           <li><a href="#6">Balance</a> 
+        </ul>
+  </label>  
+  
     
+<!--
     <login-block></login-block>
     <registr-block></registr-block>
+-->
     
+<div id="topMenu">
+    <ul class="top-menu">
+            <li><a>Total</a></li>
+            <li><a>Incomes</a></li>
+            <li><a>Expenses</a></li>
+            <li><a>Balance</a></li>
+    </ul>   
+</div>
     
 </body>
 </html>

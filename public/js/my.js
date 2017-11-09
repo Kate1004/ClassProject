@@ -18,8 +18,7 @@ app.directive('loginBlock', function () {
                 $scope.loginStatus = false;
                 $scope.registrStatus = true;
             }
-        }
-        
+        } 
     }
 });
 
