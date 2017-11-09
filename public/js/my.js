@@ -18,7 +18,7 @@ app.directive('loginBlock', function () {
                 $scope.loginStatus = false;
                 $scope.registrStatus = true;
             }
-        } 
+        }
     }
 });
 
@@ -27,6 +27,26 @@ app.directive('registrBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/registr.html',
+        controller: function ($scope) {
+        }
+    }
+});
+
+//Директива header
+app.directive('headerBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/header.html',
+        controller: function ($scope) {
+        }
+    }
+});
+
+//Директива header
+app.directive('bodyBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/body.html',
         controller: function ($scope) {
         }
     }
