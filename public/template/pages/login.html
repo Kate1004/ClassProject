@@ -11,11 +11,6 @@
                 <p><span class="fontawesome-lock"></span>
                     <input type="password" ng-model="password" value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required>
                 </p>
-<<<<<<< HEAD
-                <p><input type="submit" value="Login"></p>
-            </fieldset>
-        </form>
-=======
             </div>
             <p><input type="submit" ng-click="getUser()" value="Login" ng-disabled="myForm.$invalid"></p>
         </fieldset>

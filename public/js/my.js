@@ -113,17 +113,17 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
     /*Включаємо форму логування*/
     $scope.loginBlock = true;
     $scope.ShowHomeBlock = function () {
-            /*Включаємо інтерфейс коритувача*/
-            $scope.menuBlock = true;
-            $scope.headerBlock = true;
-            /*Катя тут напише show homeBlock = true*/
-            $scope.homeBlock = true;
-            /*Ховаємо форму логування*/
-            $scope.loginBlock = false;
-            //        console.log($scope.user.login);
-        }
-        /*Написано Дмитром*/
-        /*Якщо бзер заходить впереше*/
+        /*Включаємо інтерфейс коритувача*/
+        $scope.menuBlock = true;
+        $scope.headerBlock = true;
+        /*Катя тут напише show homeBlock = true*/
+        $scope.homeBlock = true;
+        /*Ховаємо форму логування*/
+        $scope.loginBlock = false;
+        //        console.log($scope.user.login);
+    }
+    /*Написано Дмитром*/
+    /*Якщо бзер заходить впереше*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
     }
@@ -138,9 +138,9 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
 //Директива header
 app.directive('headerBlock', function () {
     return {
-        replace: true
-        , templateUrl: 'template/header.html'
-        , controller: function ($scope) {
+        replace: true,
+        templateUrl: 'template/header.html',
+        controller: function ($scope) {
             $scope.loginStatus = false;
             $scope.contentStatus = false;
             $scope.registrStatus = true;
@@ -159,25 +159,25 @@ app.directive('headerBlock', function () {
 /*навігація*/
 app.directive('navBlock', function () {
     return {
-        replace: true
-        , templateUrl: 'template/nav.html'
-        , controller: function ($scope) {}
+        replace: true,
+        templateUrl: 'template/nav.html',
+        controller: function ($scope) {}
     }
 });
 //Директива Content
 app.directive('contentBlock', function () {
     return {
-        replace: true
-        , templateUrl: 'template/content.html'
-        , controller: function ($scope) {}
+        replace: true,
+        templateUrl: 'template/content.html',
+        controller: function ($scope) {}
     }
 });
 //Директива Login
 app.directive('loginBlock', function () {
     return {
-        replace: true
-        , templateUrl: 'template/pages/login.html'
-        , controller: function ($scope, ngDialog, $http) {
+        replace: true,
+        templateUrl: 'template/pages/login.html',
+        controller: function ($scope, ngDialog, $http) {
             $scope.Registr = function () {
                 $scope.registerBlock = true;
                 $scope.loginBlock = false;
@@ -196,13 +196,23 @@ app.directive('loginBlock', function () {
 //Директива Registration
 app.directive('registrBlock', function () {
     return {
-        replace: true
-        , templateUrl: 'template/pages/registr.html'
-        , controller: function ($scope) {
+        replace: true,
+        templateUrl: 'template/pages/registr.html',
+        controller: function ($scope) {
             $scope.closeRegAcc = function () {
                 $scope.registerBlock = false;
                 $scope.loginBlock = true;
             }
+        }
+    }
+});
+//Директива home
+app.directive('homeBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/home.html',
+        controller: function ($scope) {
+
         }
     }
 });
