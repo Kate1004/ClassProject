@@ -1,26 +1,30 @@
 <div id="registr" ng-show="registerBlock">
-    <table>
+    <form role=form name="regForm" novalidate>
+       <fieldset>
+       <table>
         <tr>
-            <td><p>Full name</p></td>
-            <td><input type="text" value=""></td>
+            <td><p>Login</p></td>
+            <td><input type="text" ng-model="newLogin" value="Ваш логін" required></td>
         </tr>
         <tr>
             <td><p>E-mail</p></td>
-            <td><input type="text" value=""></td>
+            <td><input type="text" ng-model="newMail" value="Введіть email" required></td>
         </tr>
         <tr>
             <td><p>Password</p></td>
-            <td><input type="password" value=""></td>
+            <td><input type="password"  ng-model="newPassword" value="Пароль" required></td>
         </tr>
         <tr>
             <td><p>Repeat password</p></td>
-            <td><input type="password" value=""></td>
+            <td><input type="password" ng-model="rnewPassword" value="Ще раз пароль" required></td>
         </tr>
         <tr>
             <td><p>Date of birth</p></td>
-            <td><input type="text" value=""></td>
+            <td><input type="text" ng-model="newDateOfBirth"value="ДД.ММ.РР" required></td>
         </tr>
     </table>
-    <p><input type="submit" value="Sign up" ng-click = "registerAcc()"></p>
-
+    
+    <p><input type="submit" value="Sign up" ng-click = "registerAcc()" ng-disabled="regForm.$invalid"></p>
+</fieldset>
+    </form>
 </div>

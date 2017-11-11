@@ -137,7 +137,7 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
         $http.get("/userData").then(function succesCallBack(response) {
             $scope.User = response.data;
             if(localStorage.login == "Guest"){
-                $scope.ShowHomeBlock();
+//                $scope.ShowHomeBlock();
             }
         });
     }
@@ -213,10 +213,15 @@ app.directive('loginBlock', function () {
 
 //Директива Registration
 app.directive('registrBlock', function () {
+    
     return {
+        
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
+            $scope.registerAcc=function(){
+                console.log("its ok");
+            }
 
         }
     }
