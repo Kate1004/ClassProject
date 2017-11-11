@@ -407,15 +407,24 @@ input {
 
 /* Home-Block*/
 
-.sourses ul li a{
-    height: 50px;
-    width: 50px;
-    border-color: black;
-    background-color: beige;
-    border-radius: 40%;
-    margin: 100px;
+.sourses{
+    margin: 3px; 
+	padding: 3px;   
+    
 }
 
+.sourses ul li{
+    margin: 0; 
+	padding: 0; 
+    border-color: black;
+	text-align: center; 
+	background: beige; 
+	display: inline-block; 
+	font-size: 18px; 
+    height: 50px;
+    width: 50px;
+    border-radius: 40%;
+}
 
 
 
