@@ -122,6 +122,19 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
         $scope.loginBlock = false;
         //        console.log($scope.user.login);
     }
+
+    $scope.ShowLoginBlock = function () {
+
+        localStorage.login = undefined;
+
+        $scope.menuBlock = false;
+        $scope.headerBlock = false;
+
+        $scope.homeBlock = false;
+
+        $scope.loginBlock = true;
+    }
+
     /*Написано Дмитром*/
     /*Якщо бзер заходить впереше*/
     if (localStorage.login == "undefined") {
@@ -161,7 +174,13 @@ app.directive('navBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/nav.html',
-        controller: function ($scope) {}
+        controller: function ($scope) {
+
+            $scope.LogOut = function () {
+                $scope.ShowLoginBlock();
+            }
+
+        }
     }
 });
 //Директива Content
@@ -199,6 +218,11 @@ app.directive('registrBlock', function () {
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
+            
+//            $scope.registerAcc = function(){
+//                console.log("registr");
+//            }
+            
             $scope.closeRegAcc = function () {
                 $scope.registerBlock = false;
                 $scope.loginBlock = true;
