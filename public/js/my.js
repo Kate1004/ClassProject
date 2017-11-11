@@ -1,6 +1,5 @@
 //Під`єднюємо ангуляр
 const app = angular.module('app', ['ngRoute', 'ngDialog']);
-
 // структура об'єкту 
 //var users = [
 //    {
@@ -109,52 +108,39 @@ const app = angular.module('app', ['ngRoute', 'ngDialog']);
 //        ]
 //    }
 //];
-
 //Створюємо контроллер
 app.controller('myCtrl', function ($scope, $http, ngDialog) {
-
     /*Включаємо форму логування*/
     $scope.loginBlock = true;
-
     $scope.ShowHomeBlock = function () {
-        /*Включаємо інтерфейс коритувача*/
-        $scope.menuBlock = true;
-        $scope.headerBlock = true;
-
-        /*Катя тут напише show homeBlock = true*/
-        /*Ховаємо форму логування*/
-
-        $scope.loginBlock = false;
-
-//        console.log($scope.user.login);
-    }
-
-
-    /*Написано Дмитром*/
-    /*Якщо бзер заходить впереше*/
+            /*Включаємо інтерфейс коритувача*/
+            $scope.menuBlock = true;
+            $scope.headerBlock = true;
+            /*Катя тут напише show homeBlock = true*/
+            $scope.homeBlock = true;
+            /*Ховаємо форму логування*/
+            $scope.loginBlock = false;
+            //        console.log($scope.user.login);
+        }
+        /*Написано Дмитром*/
+        /*Якщо бзер заходить впереше*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
-
     }
     /*Якщо юзер вже заходив*/
     if (localStorage.login != "Guest") {
         $http.get("/userData").then(function succesCallBack(response) {
             $scope.user = response.data;
-
         });
         $scope.ShowHomeBlock();
     }
-
-
-
 });
-
 //Директива header
 app.directive('headerBlock', function () {
     return {
-        replace: true,
-        templateUrl: 'template/header.html',
-        controller: function ($scope) {
+        replace: true
+        , templateUrl: 'template/header.html'
+        , controller: function ($scope) {
             $scope.loginStatus = false;
             $scope.contentStatus = false;
             $scope.registrStatus = true;
@@ -170,49 +156,36 @@ app.directive('headerBlock', function () {
         }
     }
 });
-
 /*навігація*/
 app.directive('navBlock', function () {
     return {
-        replace: true,
-        templateUrl: 'template/nav.html',
-        controller: function ($scope) {
-
-
-        }
+        replace: true
+        , templateUrl: 'template/nav.html'
+        , controller: function ($scope) {}
     }
 });
-
 //Директива Content
 app.directive('contentBlock', function () {
     return {
-        replace: true,
-        templateUrl: 'template/content.html',
-        controller: function ($scope) {
-
-        }
+        replace: true
+        , templateUrl: 'template/content.html'
+        , controller: function ($scope) {}
     }
 });
-
 //Директива Login
 app.directive('loginBlock', function () {
     return {
-        replace: true,
-        templateUrl: 'template/pages/login.html',
-        controller: function ($scope, ngDialog, $http) {
+        replace: true
+        , templateUrl: 'template/pages/login.html'
+        , controller: function ($scope, ngDialog, $http) {
             $scope.Registr = function () {
-
                 $scope.registerBlock = true;
                 $scope.loginBlock = false;
             }
-
             $scope.getUser = function () {
-
                 $http.get("/userData").then(function succesCallBack(response) {
                     console.log(response.data);
-
                     $scope.user = response.data;
-
                     localStorage.login = $scope.user.login;
                     $scope.ShowHomeBlock();
                 });
@@ -220,15 +193,14 @@ app.directive('loginBlock', function () {
         }
     }
 });
-
 //Директива Registration
 app.directive('registrBlock', function () {
     return {
-        replace: true,
-        templateUrl: 'template/pages/registr.html',
-        controller: function ($scope) {
-            $scope.closeRegAcc = function() {
-                 $scope.registerBlock = false;
+        replace: true
+        , templateUrl: 'template/pages/registr.html'
+        , controller: function ($scope) {
+            $scope.closeRegAcc = function () {
+                $scope.registerBlock = false;
                 $scope.loginBlock = true;
             }
         }
