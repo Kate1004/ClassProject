@@ -1,5 +1,6 @@
 //Під`єднюємо ангуляр
 const app = angular.module('app', ['ngRoute', 'ngDialog']);
+
 // структура об'єкту 
 //var users = [
 //    {
@@ -108,33 +109,44 @@ const app = angular.module('app', ['ngRoute', 'ngDialog']);
 //        ]
 //    }
 //];
+
 //Створюємо контроллер
 app.controller('myCtrl', function ($scope, $http, ngDialog) {
+
     /*Включаємо форму логування*/
     $scope.loginBlock = true;
+
     $scope.ShowHomeBlock = function () {
         /*Включаємо інтерфейс коритувача*/
         $scope.menuBlock = true;
         $scope.headerBlock = true;
+
         /*Катя тут напише show homeBlock = true*/
-        $scope.homeBlock = true;
         /*Ховаємо форму логування*/
+        console.log("Dima");
+
         $scope.loginBlock = false;
-        //        console.log($scope.user.login);
     }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> parent of 539ee4a... Merge branch 'master' of https://github.com/Kate1004/ClassProject
     /*Написано Дмитром*/
-    /*Якщо бзер заходить впереше*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
-    }
-    /*Якщо юзер вже заходив*/
-    if (localStorage.login != "Guest") {
+
+    } else {
         $http.get("/userData").then(function succesCallBack(response) {
-            $scope.user = response.data;
+            $scope.User = response.data;
+            if(localStorage.login == "Guest"){
+                $scope.ShowHomeBlock();
+            }
         });
-        $scope.ShowHomeBlock();
     }
+
 });
+
 //Директива header
 app.directive('headerBlock', function () {
     return {
@@ -156,22 +168,34 @@ app.directive('headerBlock', function () {
         }
     }
 });
+
 /*навігація*/
 app.directive('navBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/nav.html',
+<<<<<<< HEAD
+        controller: function ($scope) {
+
+
+        }
+=======
         controller: function ($scope) {}
+>>>>>>> parent of 539ee4a... Merge branch 'master' of https://github.com/Kate1004/ClassProject
     }
 });
+
 //Директива Content
 app.directive('contentBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/content.html',
-        controller: function ($scope) {}
+        controller: function ($scope) {
+
+        }
     }
 });
+
 //Директива Login
 app.directive('loginBlock', function () {
     return {
@@ -179,39 +203,32 @@ app.directive('loginBlock', function () {
         templateUrl: 'template/pages/login.html',
         controller: function ($scope, ngDialog, $http) {
             $scope.Registr = function () {
+
                 $scope.registerBlock = true;
                 $scope.loginBlock = false;
             }
+
             $scope.getUser = function () {
+                
                 $http.get("/userData").then(function succesCallBack(response) {
-                    console.log(response.data);
-                    $scope.user = response.data;
-                    localStorage.login = $scope.user.login;
                     $scope.ShowHomeBlock();
                 });
             }
         }
     }
 });
+
 //Директива Registration
 app.directive('registrBlock', function () {
+    
     return {
+        
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
-            $scope.closeRegAcc = function () {
-                $scope.registerBlock = false;
-                $scope.loginBlock = true;
+            $scope.registerAcc=function(){
+                console.log("its ok");
             }
-        }
-    }
-});
-//Директива home
-app.directive('homeBlock', function () {
-    return {
-        replace: true,
-        templateUrl: 'template/pages/home.html',
-        controller: function ($scope) {
 
         }
     }
