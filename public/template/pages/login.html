@@ -8,7 +8,7 @@
                 <p><span class="fontawesome-lock"></span>
                 <input type="password"  value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required>
                 </p>
-                <p><input type="submit" value="Login"></p>
+                <p><input type="submit" ng-click="getUser()" value="Login"></p>
             </fieldset>
         </form>
 
