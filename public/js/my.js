@@ -5,6 +5,7 @@ const app = angular.module('app', ['ngRoute', 'ngDialog']);
 app.controller('myCtrl', function ($scope, $http, ngDialog) {});
 
 
+
 //Директива Login
 app.directive('loginBlock', function () {
     return {
@@ -20,15 +21,15 @@ app.directive('loginBlock', function () {
             }
 
             //при натискані кнопки Registration ngDialog
-            $scope.registerDialWind = function() {
+            $scope.registerDialWind = function () {
                 ngDialog.open({
                     template: "/template/registr.html",
                     scope: $scope,
-                    controller: function() {
+                    controller: function () {
                         $scope.loginStatus = false;
                         $scope.registerStatus = true;
 
-                        $scope.registerAcc = function() {
+                        $scope.registerAcc = function () {
                             $scope.loginStatus = true;
                             $scope.registerStatus = false;
                         }
@@ -47,8 +48,7 @@ app.directive('registrBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/registr.html',
-        controller: function ($scope) {
-        }
+        controller: function ($scope) {}
     }
 });
 
@@ -58,16 +58,32 @@ app.directive('headerBlock', function () {
         replace: true,
         templateUrl: 'template/header.html',
         controller: function ($scope) {
+
         }
     }
 });
 
-//Директива header
+//Директива body block
 app.directive('bodyBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/body.html',
         controller: function ($scope) {
+
+
+
         }
     }
 });
+
+app.directive('navBlock', function () {
+        return {
+            replace: true,
+            templateUrl: 'template/nav.html',
+            controller: function ($scope) {
+
+
+            })
+    }
+
+}

@@ -20,6 +20,5 @@
     "ng-dialog": "^1.4.0",
     "nodemailer": "^4.1.0",
     "nodemon": "^1.11.0",
-    "twilio": "^3.6.7"
   }
 }
