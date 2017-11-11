@@ -127,8 +127,11 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
 
         $scope.loginBlock = false;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 539ee4a... Merge branch 'master' of https://github.com/Kate1004/ClassProject
     /*Написано Дмитром*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
@@ -171,10 +174,14 @@ app.directive('navBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/nav.html',
+<<<<<<< HEAD
         controller: function ($scope) {
 
 
         }
+=======
+        controller: function ($scope) {}
+>>>>>>> parent of 539ee4a... Merge branch 'master' of https://github.com/Kate1004/ClassProject
     }
 });
 
