@@ -227,7 +227,10 @@ app.directive('registrBlock', function () {
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
-
+            $scope.closeRegAcc = function() {
+                 $scope.registerBlock = false;
+                $scope.loginBlock = true;
+            }
         }
     }
 });
