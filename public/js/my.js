@@ -137,7 +137,7 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
         $http.get("/userData").then(function succesCallBack(response) {
             $scope.User = response.data;
             if(localStorage.login == "Guest"){
-//                $scope.ShowHomeBlock();
+                $scope.ShowHomeBlock();
             }
         });
     }
