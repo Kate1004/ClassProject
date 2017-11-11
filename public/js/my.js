@@ -219,9 +219,9 @@ app.directive('registrBlock', function () {
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
             
-//            $scope.registerAcc = function(){
-//                console.log("registr");
-//            }
+            $scope.registerAcc = function(){
+                console.log("registr");
+            }
             
             $scope.closeRegAcc = function () {
                 $scope.registerBlock = false;
