@@ -1,19 +1,23 @@
 <div id="login" ng-show="loginBlock">
-        <form>
-            <fieldset>
+    <form role="form" name="myForm" novalidate>
+        <fieldset>
+            <div>
                 <p><span class="fontawesome-user"></span>
-                <input type="text" value="user@gmail.com" onBlur="if(this.value == '') this.value = 'user@gmail.com'" onFocus="if(this.value == 'user@gmail.com') this.value = ''" required>
+                    <input type="text" ng-model="login" value="user@gmail.com" onBlur="if(this.value == '') this.value = 'user@gmail.com'" onFocus="if(this.value == 'user@gmail.com') this.value = ''" required>
                 </p>
+            </div>
 
+            <div>
                 <p><span class="fontawesome-lock"></span>
-                <input type="password"  value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required>
+                    <input type="password" ng-model="password" value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required>
                 </p>
-                <p><input type="submit" ng-click="getUser()" value="Login"></p>
-            </fieldset>
-        </form>
+            </div>
+            <p><input type="submit" ng-click="getUser()" value="Login" ng-disabled="myForm.$invalid"></p>
+        </fieldset>
+    </form>
 
-        <p>Don't have account?
-        <a ng-click = "Registr()">Registration</a>
+    <p>Don't have account?
+        <a ng-click="Registr()">Registration</a>
         <span class="fontawesome-arrow-right"></span>
-        </p>
-    </div>
+    </p>
+</div>
