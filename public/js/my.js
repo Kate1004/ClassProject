@@ -112,12 +112,36 @@ const app = angular.module('app', ['ngRoute', 'ngDialog']);
 
 //Створюємо контроллер
 app.controller('myCtrl', function ($scope, $http, ngDialog) {
-    
-    $scope.menuBlock = false;
-    $scope.headerBlock = false;
+
+    /*Включаємо форму логування*/
     $scope.loginBlock = true;
-    
-    
+
+    $scope.ShowHomeBlock = function () {
+        /*Включаємо інтерфейс коритувача*/
+        $scope.menuBlock = true;
+        $scope.headerBlock = true;
+
+        /*Катя тут напише show homeBlock = true*/
+        /*Ховаємо форму логування*/
+        console.log("Dima");
+
+        $scope.loginBlock = false;
+    }
+
+
+    /*Написано Дмитром*/
+    if (localStorage.login == "undefined") {
+        localStorage.login = "Guest"
+
+    } else {
+        $http.get("/userData").then(function succesCallBack(response) {
+            $scope.User = response.data;
+            if(localStorage.login == "Guest"){
+                $scope.ShowHomeBlock();
+            }
+        });
+    }
+
 });
 
 //Директива header
@@ -130,14 +154,14 @@ app.directive('headerBlock', function () {
             $scope.contentStatus = false;
             $scope.registrStatus = true;
             //Кнопка SIGN UP
-           /* $scope.chooseSignUp = function () {
-                $scope.loginStatus = true;
-                $scope.contentStatus = false;
-                $scope.registrStatus = false;
-                $scope.headerStatus = false;
-                $scope.menuStatus = false;
+            /* $scope.chooseSignUp = function () {
+                 $scope.loginStatus = true;
+                 $scope.contentStatus = false;
+                 $scope.registrStatus = false;
+                 $scope.headerStatus = false;
+                 $scope.menuStatus = false;
 
-            }*/
+             }*/
         }
     }
 });
@@ -171,15 +195,16 @@ app.directive('loginBlock', function () {
         replace: true,
         templateUrl: 'template/pages/login.html',
         controller: function ($scope, ngDialog, $http) {
-            $scope.Registr = function(){
-                
+            $scope.Registr = function () {
+
                 $scope.registerBlock = true;
                 $scope.loginBlock = false;
             }
-            
-            $scope.getUser = function(){
-                $http.get("/userData").then( function succesCallBack(response){
-                   console.log(response.data) 
+
+            $scope.getUser = function () {
+                
+                $http.get("/userData").then(function succesCallBack(response) {
+                    $scope.ShowHomeBlock();
                 });
             }
         }
@@ -192,10 +217,7 @@ app.directive('registrBlock', function () {
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
-            
+
         }
     }
 });
-
-
-
