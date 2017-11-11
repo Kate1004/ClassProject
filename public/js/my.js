@@ -61,7 +61,6 @@ app.directive('headerBlock', function () {
         replace: true,
         templateUrl: 'template/header.html',
         controller: function ($scope) {
-<<<<<<< HEAD
             $scope.loginStatus = false;
             $scope.contentStatus = false;
             $scope.registrStatus = true;
@@ -72,7 +71,7 @@ app.directive('headerBlock', function () {
                 $scope.registrStatus = false;
                 $scope.headerStatus = false;
                 $scope.menuStatus = false;
-                
+
             }
         }
     }
@@ -84,42 +83,23 @@ app.directive('contentBlock', function () {
         replace: true,
         templateUrl: 'template/content.html',
         controller: function ($scope) {
-           $scope.loginStatus = false;
-            $scope.registrStatus = false; 
+            $scope.loginStatus = false;
+            $scope.registrStatus = false;
             $scope.contentStatus = true;
             $scope.headerStatus = true;
             $scope.menuStatus = true;
-=======
-
->>>>>>> 8f2fd087817023cba46d02fc417864a1f80c3433
         }
     }
 });
 
-<<<<<<< HEAD
-=======
-//Директива body block
-app.directive('bodyBlock', function () {
+
+app.directive('navBlock', function () {
     return {
         replace: true,
-        templateUrl: 'template/body.html',
+        templateUrl: 'template/nav.html',
         controller: function ($scope) {
 
 
-
         }
     }
 });
-
-app.directive('navBlock', function () {
-        return {
-            replace: true,
-            templateUrl: 'template/nav.html',
-            controller: function ($scope) {
-
-
-            })
-    }
-
-}
->>>>>>> 8f2fd087817023cba46d02fc417864a1f80c3433
