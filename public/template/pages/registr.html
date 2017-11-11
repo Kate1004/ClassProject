@@ -1,11 +1,19 @@
 <div id="registr" ng-show="registerBlock">
     <table>
         <tr>
-            <td><p>Full name</p></td>
+            <td><p>Name</p></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td><p>Surname</p></td>
             <td><input type="text" value=""></td>
         </tr>
         <tr>
             <td><p>E-mail</p></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td><p>Login</p></td>
             <td><input type="text" value=""></td>
         </tr>
         <tr>
@@ -22,5 +30,6 @@
         </tr>
     </table>
     <p><input type="submit" value="Sign up" ng-click = "registerAcc()"></p>
+    <a ng-click = "cancel()">Cancel</a>
 
 </div>
