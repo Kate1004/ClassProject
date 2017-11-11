@@ -123,24 +123,29 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
 
         /*Катя тут напише show homeBlock = true*/
         /*Ховаємо форму логування*/
-        console.log("Dima");
 
         $scope.loginBlock = false;
+
+//        console.log($scope.user.login);
     }
 
 
     /*Написано Дмитром*/
+    /*Якщо бзер заходить впереше*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
 
-    } else {
-        $http.get("/userData").then(function succesCallBack(response) {
-            $scope.User = response.data;
-            if(localStorage.login == "Guest"){
-                $scope.ShowHomeBlock();
-            }
-        });
     }
+    /*Якщо юзер вже заходив*/
+    if (localStorage.login != "Guest") {
+        $http.get("/userData").then(function succesCallBack(response) {
+            $scope.user = response.data;
+
+        });
+        $scope.ShowHomeBlock();
+    }
+
+
 
 });
 
@@ -202,8 +207,13 @@ app.directive('loginBlock', function () {
             }
 
             $scope.getUser = function () {
-                
+
                 $http.get("/userData").then(function succesCallBack(response) {
+                    console.log(response.data);
+
+                    $scope.user = response.data;
+
+                    localStorage.login = $scope.user.login;
                     $scope.ShowHomeBlock();
                 });
             }
