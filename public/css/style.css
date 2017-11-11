@@ -106,9 +106,7 @@ input {
 /* ---------- REGISTRATION ---------- */
 
 #registr {
-    position: absolute;
     left: 525px;
-    top: 0px;
     background-color: lightgrey;
     padding: 50px;
     margin: 150px auto;
