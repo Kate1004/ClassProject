@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `myproject` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `myproject`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myproject
+-- Host: localhost    Database: my_project
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,23 +31,9 @@ CREATE TABLE `users` (
   `snameUser` varchar(200) DEFAULT NULL,
   `bDay` varchar(200) DEFAULT NULL,
   `photo` varchar(200) DEFAULT NULL,
-  `id_sources` int(11) DEFAULT NULL,
-  `id_catExpenses` int(11) DEFAULT NULL,
-  `id_saves` int(11) DEFAULT NULL,
-  `id_incomes` int(11) DEFAULT NULL,
-  `id_expenses` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_sources` (`id_sources`),
-  KEY `id_catExpenses` (`id_catExpenses`),
-  KEY `id_saves` (`id_saves`),
-  KEY `id_incomes` (`id_incomes`),
-  KEY `id_expenses` (`id_expenses`),
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_sources`) REFERENCES `sources` (`id`),
-  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`id_catExpenses`) REFERENCES `catexpenses` (`id`),
-  CONSTRAINT `users_ibfk_3` FOREIGN KEY (`id_saves`) REFERENCES `saves` (`id`),
-  CONSTRAINT `users_ibfk_4` FOREIGN KEY (`id_incomes`) REFERENCES `incomes` (`id`),
-  CONSTRAINT `users_ibfk_5` FOREIGN KEY (`id_expenses`) REFERENCES `expenses` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `statusUser` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Yura','1111','hello@.com','Oleg','Pupkin','01.02.1199',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -70,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 18:58:01
+-- Dump completed on 2017-11-12  3:05:02

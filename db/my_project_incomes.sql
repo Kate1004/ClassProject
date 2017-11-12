@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `myproject` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `myproject`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myproject
+-- Host: localhost    Database: my_project
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,28 +16,35 @@ USE `myproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `saves`
+-- Table structure for table `incomes`
 --
 
-DROP TABLE IF EXISTS `saves`;
+DROP TABLE IF EXISTS `incomes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `saves` (
+CREATE TABLE `incomes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nameSaves` varchar(200) DEFAULT NULL,
-  `sumSaves` int(11) DEFAULT NULL,
-  `dateSaves` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_users` int(11) DEFAULT NULL,
+  `dateIncomes` varchar(200) DEFAULT NULL,
+  `sumIncomes` int(11) DEFAULT NULL,
+  `id_sources` int(11) DEFAULT NULL,
+  `comments` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_users` (`id_users`),
+  KEY `id_sources` (`id_sources`),
+  CONSTRAINT `incomes_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  CONSTRAINT `incomes_ibfk_2` FOREIGN KEY (`id_sources`) REFERENCES `sources` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `saves`
+-- Dumping data for table `incomes`
 --
 
-LOCK TABLES `saves` WRITE;
-/*!40000 ALTER TABLE `saves` DISABLE KEYS */;
-/*!40000 ALTER TABLE `saves` ENABLE KEYS */;
+LOCK TABLES `incomes` WRITE;
+/*!40000 ALTER TABLE `incomes` DISABLE KEYS */;
+INSERT INTO `incomes` VALUES (1,1,'07.12.2017',3000,1,'Hell Yeah');
+/*!40000 ALTER TABLE `incomes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 18:58:01
+-- Dump completed on 2017-11-12  3:05:02

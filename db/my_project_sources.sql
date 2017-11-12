@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `myproject` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `myproject`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myproject
+-- Host: localhost    Database: my_project
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,26 +16,31 @@ USE `myproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `catexpenses`
+-- Table structure for table `sources`
 --
 
-DROP TABLE IF EXISTS `catexpenses`;
+DROP TABLE IF EXISTS `sources`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `catexpenses` (
+CREATE TABLE `sources` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nameCatExp` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nameSource` varchar(200) DEFAULT NULL,
+  `dateSource` varchar(200) DEFAULT NULL,
+  `id_users` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_users` (`id_users`),
+  CONSTRAINT `sources_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `catexpenses`
+-- Dumping data for table `sources`
 --
 
-LOCK TABLES `catexpenses` WRITE;
-/*!40000 ALTER TABLE `catexpenses` DISABLE KEYS */;
-/*!40000 ALTER TABLE `catexpenses` ENABLE KEYS */;
+LOCK TABLES `sources` WRITE;
+/*!40000 ALTER TABLE `sources` DISABLE KEYS */;
+INSERT INTO `sources` VALUES (1,'Freelance','11.11.2017',1);
+/*!40000 ALTER TABLE `sources` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 18:58:01
+-- Dump completed on 2017-11-12  3:05:02

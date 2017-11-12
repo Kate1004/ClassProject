@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `myproject` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `myproject`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myproject
+-- Host: localhost    Database: my_project
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,27 +16,32 @@ USE `myproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sources`
+-- Table structure for table `saves`
 --
 
-DROP TABLE IF EXISTS `sources`;
+DROP TABLE IF EXISTS `saves`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sources` (
+CREATE TABLE `saves` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `snameUser` varchar(200) DEFAULT NULL,
-  `dateSource` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nameSaves` varchar(200) DEFAULT NULL,
+  `sumSaves` int(11) DEFAULT NULL,
+  `dateSaves` varchar(200) DEFAULT NULL,
+  `id_users` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_users` (`id_users`),
+  CONSTRAINT `saves_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sources`
+-- Dumping data for table `saves`
 --
 
-LOCK TABLES `sources` WRITE;
-/*!40000 ALTER TABLE `sources` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sources` ENABLE KEYS */;
+LOCK TABLES `saves` WRITE;
+/*!40000 ALTER TABLE `saves` DISABLE KEYS */;
+INSERT INTO `saves` VALUES (1,'cash',350,'14.11.2017',1);
+/*!40000 ALTER TABLE `saves` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 18:58:01
+-- Dump completed on 2017-11-12  3:05:02

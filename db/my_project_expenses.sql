@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `myproject` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `myproject`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myproject
+-- Host: localhost    Database: my_project
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,30 +16,38 @@ USE `myproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `incomes`
+-- Table structure for table `expenses`
 --
 
-DROP TABLE IF EXISTS `incomes`;
+DROP TABLE IF EXISTS `expenses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `incomes` (
+CREATE TABLE `expenses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dateIncomes` varchar(200) DEFAULT NULL,
-  `sumIncomes` int(11) DEFAULT NULL,
+  `id_users` int(11) DEFAULT NULL,
+  `dateExpenses` varchar(200) DEFAULT NULL,
+  `sumExpenses` int(11) DEFAULT NULL,
+  `commentsExpenses` varchar(200) DEFAULT NULL,
   `id_saves` int(11) DEFAULT NULL,
+  `id_catExpenses` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `id_users` (`id_users`),
   KEY `id_saves` (`id_saves`),
-  CONSTRAINT `incomes_ibfk_1` FOREIGN KEY (`id_saves`) REFERENCES `saves` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `id_catExpenses` (`id_catExpenses`),
+  CONSTRAINT `expenses_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`),
+  CONSTRAINT `expenses_ibfk_2` FOREIGN KEY (`id_saves`) REFERENCES `saves` (`id`),
+  CONSTRAINT `expenses_ibfk_3` FOREIGN KEY (`id_catExpenses`) REFERENCES `catexpenses` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `incomes`
+-- Dumping data for table `expenses`
 --
 
-LOCK TABLES `incomes` WRITE;
-/*!40000 ALTER TABLE `incomes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `incomes` ENABLE KEYS */;
+LOCK TABLES `expenses` WRITE;
+/*!40000 ALTER TABLE `expenses` DISABLE KEYS */;
+INSERT INTO `expenses` VALUES (1,1,'02.11.2107',440,'no comments',1,1);
+/*!40000 ALTER TABLE `expenses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09 18:58:01
+-- Dump completed on 2017-11-12  3:05:02
