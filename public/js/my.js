@@ -1,6 +1,6 @@
 //Під`єднюємо ангуляр
 const app = angular.module('app', ['ngRoute', 'ngDialog']);
-// структура об'єкту 
+// структура об'єкту
 //var users = [
 //    {
 //        id: 1,
@@ -180,6 +180,11 @@ app.directive('navBlock', function () {
                 $scope.ShowLoginBlock();
             }
 
+            $scope.usersPage = function() {
+                $scope.accountBlock = true;
+                $scope.homeBlock = false;
+            }
+
         }
     }
 });
@@ -218,11 +223,11 @@ app.directive('registrBlock', function () {
         replace: true,
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
-            
+
             $scope.registerAcc = function(){
                 console.log("registr");
             }
-            
+
             $scope.closeRegAcc = function () {
                 $scope.registerBlock = false;
                 $scope.loginBlock = true;
@@ -237,6 +242,16 @@ app.directive('homeBlock', function () {
         templateUrl: 'template/pages/home.html',
         controller: function ($scope) {
 
+        }
+    }
+});
+
+//directive account
+app.directive('accountBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/account.html',
+        controller: function ($scope) {
         }
     }
 });
