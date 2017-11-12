@@ -466,40 +466,40 @@ input {
     margin-left: 20px;
 }
 
-.users-page-information span {
+.users_page_information span {
     display: block;
 }
 
-.users-page-edit {
+.users_page_edit {
     float: left;
 }
 
-.users-page-edit input {
+.users_page_edit input {
     display: block;
     margin: 15px;
     width: 70px;
 }
 
-.users-page-source {
+.users_page_source {
     position: absolute;
     top: 400px;
     left: 15%;
 }
 
 
-.users-page-saves {
+.users_page_saves {
     position: absolute;
     top: 500px;
     left: 15%;
 }
 
-.users-page-source input {
+.users_page_source input {
     border-radius: 100%;
     height: 90px;
     width: 90px;
 }
 
-.users-page-saves input {
+.users_page_saves input {
     border-radius: 100%;
     height: 90px;
     width: 90px;
