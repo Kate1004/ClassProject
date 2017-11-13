@@ -178,11 +178,19 @@ app.directive('navBlock', function () {
 
             $scope.LogOut = function () {
                 $scope.ShowLoginBlock();
+                $scope.accountBlock = false;
+                $scope.homeBlock = false;
             }
 
             $scope.usersPage = function() {
                 $scope.accountBlock = true;
                 $scope.homeBlock = false;
+                 $scope.statsBlock = false;
+            }
+            $scope.statsPage = function() {
+                $scope.accountBlock = false;
+                $scope.homeBlock = false;
+                $scope.statsBlock = true;
             }
 
         }
@@ -255,3 +263,14 @@ app.directive('accountBlock', function () {
         }
     }
 });
+//директива статистика
+app.directive('statsBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/statistic.html',
+        controller: function ($scope) {
+            
+        }
+    }
+});
+
