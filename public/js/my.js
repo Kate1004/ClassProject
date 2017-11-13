@@ -180,6 +180,7 @@ app.directive('navBlock', function () {
                 $scope.ShowLoginBlock();
                 $scope.accountBlock = false;
                 $scope.homeBlock = false;
+                $scope.statsBlock = false;
             }
 
             $scope.usersPage = function () {
