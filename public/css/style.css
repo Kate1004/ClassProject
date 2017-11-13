@@ -464,3 +464,36 @@ input {
     height: 90px;
     width: 90px;
 }
+.statistics {
+    margin-left: 50%;
+}
+.time {
+    height: 50px;
+    width: 150px;
+    display: flex;
+}
+.day, .month, .year {
+    width: 50px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    
+}
+.day:hover {
+
+    background: white;
+}
+.month:hover {
+
+    background: white;
+}
+.year:hover {
+  
+    background: white;
+}
+.selectForm {
+    height: 30px;
+    width: 100px;
+    background: lightgrey;
+    font-size: 15px;
+}
