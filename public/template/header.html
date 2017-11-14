@@ -1,8 +1,10 @@
 <div id="topMenu" ng-show="headerBlock">
     <ul class="top-menu">
-            <li><a>{{count.totalBudget}}</a></li>
-            <li><a>{{count.monthInc}}</a></li>
-            <li><a>{{count.monthExp}}</a></li>
-            <li><a>{{count.monthBalance}}</a></li>
+            <li><a>{{count.totalBudget}}Total Budget</a></li>
+            <li><a>{{count.monthInc}}Month Income</a></li>
+            <li><a>{{count.monthExp}}Month Expenses</a></li>
+            <li><a>{{count.monthBalance}}Month Balance</a></li>
+        <li><input type="button" value="INCOMES" ng-click = "openIncomes()"></li>
     </ul>
+    
 </div>

@@ -280,11 +280,7 @@ input {
     }
 }
 
-/**
- * формируем непосредственно само меню
- * используем неупорядоченный список для пунктов меню
- * прикрутим трансфомации и плавные переходы
- */
+/*формуєм меню*/
 
 .nav>ul {
     display: block;
@@ -377,8 +373,8 @@ input {
     list-style: none;
 	text-align: center;
 	margin: 0 auto;
-    margin-left: 400px;
-    width: 600px;
+    margin-left: 450px;
+    width: 500px;
 }
 
 .sourses ul a {
@@ -393,16 +389,30 @@ input {
 	cursor: pointer;
 	position: relative;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
 }
 
-.sourses p{
+.sourses ul li a:hover{
+    background: #f5f5f5;
+    color: black;
+    text-decoration: none;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 0.3s ease;
+   
+}
+
+
+#topMenu input{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+<<<<<<< HEAD
+    float: right;
+    
+=======
     float: left;
 
 }
 .sourses input{
 
+>>>>>>> ec95893e08460ffe142c483580401237d642c38c
 }
 
 

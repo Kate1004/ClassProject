@@ -193,6 +193,11 @@ app.directive('navBlock', function () {
                 $scope.homeBlock = false;
                 $scope.statsBlock = true;
             }
+               $scope.homePage = function () {
+                $scope.accountBlock = false;
+                $scope.homeBlock = true;
+                $scope.statsBlock = false;
+            }
 
         }
     }
@@ -250,7 +255,6 @@ app.directive('homeBlock', function () {
         replace: true,
         templateUrl: 'template/pages/home.html',
         controller: function ($scope) {
-
         }
     }
 });
