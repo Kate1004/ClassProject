@@ -403,8 +403,16 @@ input {
 
 #topMenu input{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+<<<<<<< HEAD
     float: right;
     
+=======
+    float: left;
+
+}
+.sourses input{
+
+>>>>>>> ec95893e08460ffe142c483580401237d642c38c
 }
 
 
@@ -424,45 +432,78 @@ input {
     float: left;
     width: 500px;
     min-height: 100px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin-left: 20px;
 }
 
-.users_page_information span {
+.users-page-information span {
     display: block;
 }
 
-.users_page_edit {
+.users-page-edit {
     float: left;
 }
 
-.users_page_edit input {
+.users-page-edit input {
     display: block;
     margin: 15px;
     width: 70px;
 }
 
-.users_page_source {
+.users-page-source {
     position: absolute;
     top: 400px;
     left: 15%;
 }
 
 
-.users_page_saves {
+.users-page-saves {
     position: absolute;
     top: 500px;
     left: 15%;
 }
 
-.users_page_source input {
+.users-page-source input {
     border-radius: 100%;
     height: 90px;
     width: 90px;
 }
 
-.users_page_saves input {
+.users-page-saves input {
     border-radius: 100%;
     height: 90px;
     width: 90px;
+}
+.statistics {
+    margin-left: 50%;
+}
+.time {
+    height: 50px;
+    width: 150px;
+    display: flex;
+}
+.day, .month, .year {
+    width: 50px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    
+}
+.day:hover {
+
+    background: white;
+}
+.month:hover {
+
+    background: white;
+}
+.year:hover {
+  
+    background: white;
+}
+.selectForm {
+    height: 30px;
+    width: 100px;
+    background: lightgrey;
+    font-size: 15px;
 }
