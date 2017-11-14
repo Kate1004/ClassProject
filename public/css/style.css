@@ -474,6 +474,8 @@ input {
     height: 90px;
     width: 90px;
 }
+
+
 .statistics {
     margin-left: 50%;
 }
@@ -506,4 +508,37 @@ input {
     width: 100px;
     background: lightgrey;
     font-size: 15px;
+}
+
+/*history block*/
+.history-page-filter {
+    margin-left: 170px;
+    margin-bottom: 70px;
+}
+
+.history-page-filter input {
+    width: 90px;
+}
+
+.history-page-filter input:hover {
+    background-color: yellow;
+}
+
+.history-page-table {
+    margin-left: 170px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.history-page-table table {
+    width: 1120px;
+    height: 250px;
+}
+
+.history-page-table td {
+    vertical-align: middle;
+}
+
+.history-page-table table tr td {
+    border: 1px solid black; 
 }

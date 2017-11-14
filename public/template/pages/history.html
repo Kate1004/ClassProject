@@ -1,0 +1,46 @@
+<div ng-show="historyBlock">
+    <div class="history-page">
+        <div class="history-page-filter">
+            <input type="button" value="Jan">
+            <input type="button" value="Feb">
+            <input type="button" value="Mar">
+            <input type="button" value="Apr">
+            <input type="button" value="May">
+            <input type="button" value="June">
+            <input type="button" value="Jul">
+            <input type="button" value="Aug">
+            <input type="button" value="Sept">
+            <input type="button" value="Oct">
+            <input type="button" value="Nov">
+            <input type="button" value="Dec">
+        </div>
+        <div class="history-page-table">
+            <table>
+                <tr>
+                    <td>date</td>
+                    <td>sum</td>
+                    <td>type</td>
+                    <td>source</td>
+                    <td>for</td>
+                    <td>comments</td>
+                </tr>
+                <tr>
+                    <td ng-repeat="a in users">{{a.expences[0].date}}</td>
+                    <td ng-repeat="a in users">{{a.expences[0].sum}}</td>
+                    <td>expences</td>
+                    <td ng-repeat="a in users"></td>
+                    <td ng-repeat="a in users">{{a.catExpenses[0].name}}</td>
+                    <td ng-repeat="a in users">{{a.expences[0].comments}}</td>
+                </tr>
+                <tr>
+                    <td ng-repeat="a in users">{{a.incomes[0].date}}</td>
+                    <td ng-repeat="a in users">{{a.incomes[0].sum}}</td>
+                    <td>incomes</td>
+                    <td ng-repeat="a in users">{{a.sources[0].sName}}</td>
+                    <td ng-repeat="a in users">{{a.catExpenses[1].name}}</td>
+                    <td ng-repeat="a in users">{{a.incomes[0].comments}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
