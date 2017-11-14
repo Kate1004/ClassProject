@@ -507,7 +507,17 @@ input {
     background: lightgrey;
     font-size: 15px;
 }
-#piechart{
-    width: 900px;
-    height: 500px;
+.diagrams {
+    position: absolute;
+    margin-left: 200px;;
 }
+#piechartY {
+    
+    width: 420px;
+    height: 220px;
+}
+#piechartE {
+    width: 700px;
+    height: 300px;
+}
+

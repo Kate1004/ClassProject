@@ -1,17 +1,23 @@
 <div ng-show="statsBlock" class="statistics">
-    <div class="time">
-        <div class="day" id="day" ng-click="selectDay()">Date</div>
+    <div class="incomes">
+        <div class="time">
+            <div class="day" id="day" ng-click="selectDay()">Date</div>
 
-        <div class="month" id="month" ng-click="selectMonth()">Month</div>
-        <div class="year" id="year" ng-click="SelectYear()">Year</div>
+            <div class="month" id="month" ng-click="selectMonth()">Month</div>
+            <div class="year" id="year" ng-click="SelectYear()">Year</div>
+        </div>
+        <div class="selectTime">
+            <select ng-model="selectedDay" ng-options="day for day in dates" ng-show="day" class="selectForm">
+</select>
+            <select ng-model="selectedMonth" ng-options="month for month in months" ng-show="month" class="selectForm">
+</select>
+            <select ng-model="selectedYear" ng-options="year for year in years" ng-show="year" class="selectForm">
+</select>
+        </div>
+        <div class="diagrams">
+            <div id="piechartY"></div>
+            <div id="piechartE"></div>
+        </div>
     </div>
-    <div class="selectTime" >
-        <select ng-model="selectedDay" ng-options="day for day in dates" ng-show="day" class="selectForm">
-</select>
-   <select ng-model="selectedMonth" ng-options="month for month in months" ng-show="month" class="selectForm">
-</select>
-   <select ng-model="selectedYear" ng-options="year for year in years" ng-show="year" class="selectForm">
-</select>
-    </div>
-    <div id="piechart"></div>
+
 </div>

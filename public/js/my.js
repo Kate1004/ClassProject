@@ -254,7 +254,9 @@ app.directive('homeBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/home.html',
-        controller: function ($scope) {}
+        controller: function ($scope) {
+            
+        }
     }
 });
 
@@ -272,7 +274,7 @@ app.directive('statsBlock', function () {
         replace: true,
         templateUrl: 'template/pages/statistic.html',
         controller: function ($scope) {
-            $scope.day = false;
+            $scope.day = true;
             $scope.dates = [
                 "1",
                 "2",
@@ -346,11 +348,11 @@ app.directive('statsBlock', function () {
             google.charts.load('current', {
                 'packages': ['corechart']
             });
-            google.charts.setOnLoadCallback(drawChart);
+            google.charts.setOnLoadCallback(drawChartI);
 
-            function drawChart() {
+            function drawChartI() {
 
-                var data = google.visualization.arrayToDataTable([
+                var dataI = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Work', 11],
           ['Eat', 2],
@@ -359,13 +361,39 @@ app.directive('statsBlock', function () {
           ['Sleep', 7]
         ]);
 
-                var options = {
-                    title: 'My Daily Activities'
+                var optionsI = {
+                    title: 'Incomes'
                 };
 
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                var chartI = new google.visualization.PieChart(document.getElementById('piechartY'));
 
-                chart.draw(data, options);
+                chartI.draw(dataI, optionsI);
+            }
+            
+            //витрати
+             google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var dataE = google.visualization.arrayToDataTable([
+          ['Cars', 'Hours per Day'],
+          ['Work', 11],
+          ['House', 2],
+          ['Foot', 2],
+          ['Dog', 2],
+          ['Phone', 7]
+        ]);
+
+                var optionsE = {
+                    title: 'Expenses'
+                };
+
+                var chartE = new google.visualization.PieChart(document.getElementById('piechartE'));
+
+                chartE.draw(dataE, optionsE);
             }
         }
     }
