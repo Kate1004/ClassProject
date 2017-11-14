@@ -292,6 +292,7 @@ app.directive('historyBlock', function () {
         replace: true,
         templateUrl: 'template/pages/history.html',
         controller: function ($scope) {
+//            <!--НІЧОГО НЕ ВИДАЛЯТИ-->
             $scope.users = [
                 {
                     id: 1,
@@ -399,6 +400,9 @@ app.directive('historyBlock', function () {
         ]
     }
 ];
+            
+            
+            
         }
     }
 });

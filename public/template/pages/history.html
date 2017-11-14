@@ -10,8 +10,8 @@
             <input type="button" value="Jul">
             <input type="button" value="Aug">
             <input type="button" value="Sept">
-            <input type="button" value="Oct">
-            <input type="button" value="Nov">
+            <input type="button" value="Oct" ng-click = "dataFilter = '-10-'">
+            <input type="button" value="Nov" ng-click = "dataFilter = '-11-'">
             <input type="button" value="Dec">
         </div>
         <div class="history-page-table">
@@ -24,8 +24,8 @@
                     <td>for</td>
                     <td>comments</td>
                 </tr>
-                <tr>
-                    <td ng-repeat="a in users">{{a.expences[0].date}}</td>
+                <tr ng-repeat="a in users">
+                    <td ng-repeat="a in users | filter: dataFilter">{{a.expences[0].date}}</td>
                     <td ng-repeat="a in users">{{a.expences[0].sum}}</td>
                     <td>expences</td>
                     <td ng-repeat="a in users"></td>
