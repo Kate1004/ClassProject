@@ -72,11 +72,25 @@ app.directive('navBlock', function () {
 
             $scope.LogOut = function () {
                 $scope.ShowLoginBlock();
+                $scope.accountBlock = false;
+                $scope.homeBlock = false;
+                $scope.statsBlock = false;
             }
 
-            $scope.usersPage = function() {
+            $scope.usersPage = function () {
                 $scope.accountBlock = true;
                 $scope.homeBlock = false;
+                $scope.statsBlock = false;
+            }
+            $scope.statsPage = function () {
+                $scope.accountBlock = false;
+                $scope.homeBlock = false;
+                $scope.statsBlock = true;
+            }
+               $scope.homePage = function () {
+                $scope.accountBlock = false;
+                $scope.homeBlock = true;
+                $scope.statsBlock = false;
             }
 
         }
@@ -121,7 +135,7 @@ app.directive('registrBlock', function () {
         templateUrl: 'template/pages/registr.html',
         controller: function ($scope) {
 
-            $scope.registerAcc = function(){
+            $scope.registerAcc = function () {
                 console.log("registr");
             }
 
@@ -138,7 +152,6 @@ app.directive('homeBlock', function () {
         replace: true,
         templateUrl: 'template/pages/home.html',
         controller: function ($scope) {
-
         }
     }
 });
@@ -148,7 +161,86 @@ app.directive('accountBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/account.html',
+        controller: function ($scope) {}
+    }
+});
+//директива статистика
+app.directive('statsBlock', function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/statistic.html',
         controller: function ($scope) {
+               $scope.day = false;
+            $scope.dates = [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                 "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                 "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31"
+
+            ],
+                $scope.months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ],
+                $scope.years = [
+                "2017",
+                "2018",
+                "2019",
+                "2020"
+            ]
+            $scope.selectDay = function() {
+                $scope.day = true;
+                $scope.month = false;
+                $scope.year = false;
+                
+            }
+             $scope.selectMonth = function() {
+                $scope.day = false;
+                $scope.month = true;
+                $scope.year = false;
+            }
+              $scope.SelectYear = function() {
+                $scope.day = false;
+                $scope.month = false;
+                $scope.year = true;
+            }
         }
     }
 });

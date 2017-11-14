@@ -1,6 +1,8 @@
 <div id="login" ng-show="loginBlock">
     <form role="form" name="myForm" novalidate>
         <fieldset>
+            <div ng-show='false'><span class="login-form">Please Log In</span></div>
+           
             <div>
                 <p><span class="fontawesome-user"></span>
                     <input type="text" ng-model="login" value="user@gmail.com" onBlur="if(this.value == '') this.value = 'user@gmail.com'" onFocus="if(this.value == 'user@gmail.com') this.value = ''" required>

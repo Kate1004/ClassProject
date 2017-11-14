@@ -280,11 +280,7 @@ input {
     }
 }
 
-/**
- * формируем непосредственно само меню
- * используем неупорядоченный список для пунктов меню
- * прикрутим трансфомации и плавные переходы
- */
+/*формуєм меню*/
 
 .nav>ul {
     display: block;
@@ -347,9 +343,7 @@ input {
     transition: opacity .5s .7s, transform .5s .7s;
 }
 
-/**
- * оформление ссылок пунктов меню
- */
+/*оформление ссылок пунктов меню */
 
 .nav>ul>li>a {
     display: inline-block;
@@ -367,63 +361,20 @@ input {
     transition: color .5s ease, padding .5s ease;
 }
 
-/**
- * состояние ссылок меню при наведении
- */
-
 .nav>ul>li>a:hover, .nav>ul>li>a:focus {
     color: white;
     padding-left: 15px;
-}
-
-/**
- * линия подчеркивания ссылок меню
- */
-
-.nav>ul>li>a:before {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    width: 100%;
-    -webkit-transition: width 0s ease;
-    transition: width 0s ease;
-}
-
-.nav>ul>li>a:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    width: 100%;
-    background: #3bc1a0;
-    -webkit-transition: width .5s ease;
-    transition: width .5s ease;
 }
 
 /* Home-Block*/
 
 
 .sourses ul{
-/*
-    width: 700px;
-	height: 300px;
-    display: flex;
-    flex-direction: row;
-
-    position: relative;
-
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-*/
-
     list-style: none;
 	text-align: center;
 	margin: 0 auto;
-    margin-left: 180px;
+    margin-left: 450px;
+    width: 500px;
 }
 
 .sourses ul a {
@@ -438,18 +389,37 @@ input {
 	cursor: pointer;
 	position: relative;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
 }
 
-.sourses p{
+.sourses ul li a:hover{
+    background: #f5f5f5;
+    color: black;
+    text-decoration: none;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 0.3s ease;
+   
+}
+
+
+#topMenu input{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-/*
-    margin-left: 580px;
-    margin-top: 100px;
-*/
+<<<<<<< HEAD
     float: right;
-	padding-top: 0.625em;
+    
+=======
+    float: left;
+
 }
+.sourses input{
+
+>>>>>>> ec95893e08460ffe142c483580401237d642c38c
+}
+
+
+
+
+
+
 
 /*account block*/
 
@@ -462,7 +432,7 @@ input {
     float: left;
     width: 500px;
     min-height: 100px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin-left: 20px;
 }
 
@@ -503,4 +473,37 @@ input {
     border-radius: 100%;
     height: 90px;
     width: 90px;
+}
+.statistics {
+    margin-left: 50%;
+}
+.time {
+    height: 50px;
+    width: 150px;
+    display: flex;
+}
+.day, .month, .year {
+    width: 50px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    
+}
+.day:hover {
+
+    background: white;
+}
+.month:hover {
+
+    background: white;
+}
+.year:hover {
+  
+    background: white;
+}
+.selectForm {
+    height: 30px;
+    width: 100px;
+    background: lightgrey;
+    font-size: 15px;
 }
