@@ -66,7 +66,8 @@ input {
     outline: none;
 }
 
-#login form input[type="text"], input[type="password"] {
+#login form input[type="text"],
+input[type="password"] {
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     -moz-border-radius: 0px 3px 3px 0px;
@@ -98,11 +99,11 @@ input {
     background-color: #d44179;
 }
 
-#login>p {
+#login > p {
     text-align: center;
 }
 
-#login>p span {
+#login > p span {
     padding-left: 5px;
 }
 
@@ -123,6 +124,7 @@ input {
     font-size: 16px;
     margin-top: 15px;
 }
+
 #registr input {
     height: 50px;
     outline: none;
@@ -136,7 +138,8 @@ input {
     color: #fff;
 }
 
-#registr input[type="text"], input[type="password"] {
+#registr input[type="text"],
+input[type="password"] {
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     -moz-border-radius: 0px 3px 3px 0px;
@@ -163,7 +166,8 @@ input {
 #registr input[type="submit"]:hover {
     background-color: #d44179;
 }
-#registr a{
+
+#registr a {
     font-weight: bold;
 
 }
@@ -246,7 +250,7 @@ input {
 
 /* Когда флажок установлен, открывается панель используем псевдокласс:checked */
 
-[id='nav-toggle']:checked~.nav {
+[id='nav-toggle']:checked ~ .nav {
     left: 0;
     box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.5);
@@ -256,21 +260,23 @@ input {
 
 /*изменение символа переключателя, (X)*/
 
-[id='nav-toggle']:checked~.nav>.nav-toggle:after {
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
     content: '\2715';
 }
 
 /*на  мобильні екрани */
 
 @media screen and (min-width: 320px) {
-    html, body {
+    html,
+    body {
         margin: 0;
         overflow-x: hidden;
     }
 }
 
 @media screen and (max-width: 320px) {
-    html, body {
+    html,
+    body {
         margin: 0;
         overflow-x: hidden;
     }
@@ -282,7 +288,7 @@ input {
 
 /*формуєм меню*/
 
-.nav>ul {
+.nav > ul {
     display: block;
     margin: 0;
     padding: 0;
@@ -290,7 +296,7 @@ input {
     margin-top: 40px;
 }
 
-.nav>ul>li {
+.nav > ul > li {
     line-height: 3.5;
     opacity: 0;
     -webkit-transform: translateX(-50%);
@@ -303,7 +309,7 @@ input {
     transition: opacity .5s .1s, transform .5s .1s;
 }
 
-[id='nav-toggle']:checked~.nav>ul>li {
+[id='nav-toggle']:checked ~ .nav > ul > li {
     opacity: 1;
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
@@ -313,39 +319,39 @@ input {
 
 /* определяем интервалы появления пунктов меню */
 
-.nav>ul>li:nth-child(2) {
+.nav > ul > li:nth-child(2) {
     -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
     transition: opacity .5s .2s, transform .5s .2s;
 }
 
-.nav>ul>li:nth-child(3) {
+.nav > ul > li:nth-child(3) {
     -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
     transition: opacity .5s .3s, transform .5s .3s;
 }
 
-.nav>ul>li:nth-child(4) {
+.nav > ul > li:nth-child(4) {
     -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
     transition: opacity .5s .4s, transform .5s .4s;
 }
 
-.nav>ul>li:nth-child(5) {
+.nav > ul > li:nth-child(5) {
     -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
     transition: opacity .5s .5s, transform .5s .5s;
 }
 
-.nav>ul>li:nth-child(6) {
+.nav > ul > li:nth-child(6) {
     -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
     transition: opacity .5s .6s, transform .5s .6s;
 }
 
-.nav>ul>li:nth-child(7) {
+.nav > ul > li:nth-child(7) {
     -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
     transition: opacity .5s .7s, transform .5s .7s;
 }
 
 /*оформление ссылок пунктов меню */
 
-.nav>ul>li>a {
+.nav > ul > li > a {
     display: inline-block;
     position: relative;
     padding: 0;
@@ -361,58 +367,57 @@ input {
     transition: color .5s ease, padding .5s ease;
 }
 
-.nav>ul>li>a:hover, .nav>ul>li>a:focus {
+.nav > ul > li > a:hover,
+.nav > ul > li > a:focus {
     color: white;
     padding-left: 15px;
 }
 
 /* Home-Block*/
 
-
-.sourses ul{
+.sourses ul {
     list-style: none;
-	text-align: center;
-	margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
     margin-left: 450px;
     width: 500px;
 }
 
 .sourses ul a {
     width: 80px;
-	height: 80px;
-	margin: 2%;
-	background: #3bc1a0;
-	color: #fff;
-	display: block;
-	float: left;
-	padding: 1.5em;
-	cursor: pointer;
-	position: relative;
+    height: 80px;
+    margin: 2%;
+    background: #3bc1a0;
+    color: #fff;
+    display: block;
+    float: left;
+    padding: 1.5em;
+    cursor: pointer;
+    position: relative;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.sourses ul li a:hover{
+.sourses ul li a:hover {
     background: #f5f5f5;
     color: black;
     text-decoration: none;
     box-shadow: 1px 5px 10px -5px black;
     transition: all 0.3s ease;
-   
+
 }
 
 
-#topMenu input{
+#topMenu input {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-<<<<<<< HEAD
-    float: right;
-    
-=======
-    float: left;
+    <<<<<<< HEAD float: right;
+
+    =======float: left;
 
 }
-.sourses input{
 
->>>>>>> ec95893e08460ffe142c483580401237d642c38c
+.sourses input {
+
+    > > > > > > > ec95893e08460ffe142c483580401237d642c38c
 }
 
 
@@ -474,50 +479,67 @@ input {
     height: 90px;
     width: 90px;
 }
+
 .statistics {
     margin-left: 50%;
 }
+
 .time {
     height: 50px;
     width: 150px;
     display: flex;
 }
-.day, .month, .year {
+
+.day,
+.month,
+.year {
     width: 50px;
     height: 20px;
     padding: 5px;
     margin: 5px;
-    
+
 }
+
 .day:hover {
 
     background: white;
 }
+
 .month:hover {
 
     background: white;
 }
+
 .year:hover {
-  
+
     background: white;
 }
+
 .selectForm {
     height: 30px;
     width: 100px;
     background: lightgrey;
     font-size: 15px;
 }
+
 .diagrams {
     position: absolute;
-    margin-left: 200px;;
+    margin-left: 200px;
+    ;
 }
+
 #piechartY {
-    
+
     width: 420px;
     height: 220px;
 }
+
 #piechartE {
-    width: 700px;
-    height: 300px;
+    width: 420px;
+    height: 220px;
 }
 
+#series_chart_div {
+    width: 420px;
+    height: 220px;
+}

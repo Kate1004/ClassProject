@@ -255,7 +255,7 @@ app.directive('homeBlock', function () {
         replace: true,
         templateUrl: 'template/pages/home.html',
         controller: function ($scope) {
-            
+
         }
     }
 });
@@ -353,12 +353,11 @@ app.directive('statsBlock', function () {
             function drawChartI() {
 
                 var dataI = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work', 11],
-          ['Eat', 2],
-          ['Commute', 2],
-          ['Watch TV', 2],
-          ['Sleep', 7]
+          ['id_incomes', 'total'],
+          ['freelance', 11],
+          ['deposits', 2],
+          ['rents', 2],
+          ['gifts', 7]
         ]);
 
                 var optionsI = {
@@ -369,9 +368,9 @@ app.directive('statsBlock', function () {
 
                 chartI.draw(dataI, optionsI);
             }
-            
+
             //витрати
-             google.charts.load('current', {
+            google.charts.load('current', {
                 'packages': ['corechart']
             });
             google.charts.setOnLoadCallback(drawChart);
@@ -379,7 +378,7 @@ app.directive('statsBlock', function () {
             function drawChart() {
 
                 var dataE = google.visualization.arrayToDataTable([
-          ['Cars', 'Hours per Day'],
+          ['id_exp', 'total'],
           ['Work', 11],
           ['House', 2],
           ['Foot', 2],
@@ -395,6 +394,37 @@ app.directive('statsBlock', function () {
 
                 chartE.draw(dataE, optionsE);
             }
+
+
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawSeriesChart);
+
+            function drawSeriesChart() {
+
+                var data = google.visualization.arrayToDataTable([
+        ['ID', 'value', 'Date created'],
+        ['Cash', 50.66, 3],
+        ['Credit', 79.84, 3],
+        ['Socks', 38.6, 5],
+        ['etc', 21.73, 7]
+      ]);
+
+                var options = {
+                    title: 'Savings',
+                    bubble: {
+                        textStyle: {
+                            fontSize: 12
+                        }
+                    }
+                };
+
+                var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+                chart.draw(data, options);
+            }
+
+
         }
     }
 });
