@@ -1,0 +1,34 @@
+<div>
+    <center>    
+        <h2 class="ngdialog-content ">Expension creation</h2>
+        <br>
+        <label for="name">Name</label>
+        <br>
+        <input name="name" type="text" ng-model="ExpenseName">
+
+        <br><br>
+
+        <label for="comment">Comment</label>
+        <br>
+        <input name="comment" type="text" ng-model="CommentName">
+
+        <br><br>
+
+        <label for="comment">Summ</label>
+        <br>
+        <input name="comment" type="number" min="1" max={{SelectedSave.sum}} ng-model="SummName" >
+        <br>
+        <br>
+
+        <label for="Sources">Chouse source</label>
+
+        <select ng-model="SelectedSave" name="Sources" ng-options=" save.name for save in users[0].saves track by save.id "></select> Sum: {{SelectedSave.sum}}
+        <br><br>
+        
+        <button class="btn" id="SendExpense" ng-click="spendSaves()" ng-if="(ExpenseName && SummName && CommentName)? true : false" >
+        Add Expense
+        </button>
+    </center>
+
+    <!--    <input type="button" ng-click="ngDialog.closeAll()" value="Register">-->
+</div>

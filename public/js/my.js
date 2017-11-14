@@ -1,7 +1,6 @@
 //Під`єднюємо ангуляр
 const app = angular.module('app', ['ngRoute', 'ngDialog']);
 
-
 //Створюємо контроллер
 app.controller('myCtrl', function ($scope, $http, ngDialog) {
     /*Включаємо форму логування*/
@@ -87,7 +86,7 @@ app.directive('navBlock', function () {
                 $scope.homeBlock = false;
                 $scope.statsBlock = true;
             }
-               $scope.homePage = function () {
+            $scope.homePage = function () {
                 $scope.accountBlock = false;
                 $scope.homeBlock = true;
                 $scope.statsBlock = false;
@@ -117,11 +116,11 @@ app.directive('loginBlock', function () {
             $scope.getUser = function () {
                 $http.get("/userData").then(function succesCallBack(response) {
                     console.log(response.data);
-                    
+
                     $scope.user = response.data;
-                    
+
                     localStorage.login = $scope.user.login;
-                    
+
                     $scope.ShowHomeBlock();
                 });
             }
@@ -146,16 +145,143 @@ app.directive('registrBlock', function () {
         }
     }
 });
+
 //Директива home
 app.directive('homeBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/home.html',
-        controller: function ($scope) {
+        controller: function ($scope, ngDialog) {
+            //Локальна змінна для даних
+            $scope.users = [
+                {
+
+                    id: 1,
+                    login: "Yura",
+                    password: "some12345",
+                    eMail: "some@some.s",
+                    name: "Yura",
+                    sname: "Volchak",
+                    bDay: "1987-05-25",
+                    photo: "1.png",
+                    sources: [
+                        {
+                            id: 1,
+                            sName: "freelance",
+                            date: "2017-11-07"
+             }
+            , {
+                            id: 24,
+                            sName: "present",
+                            date: "2017-11-08"
+             }
+            , {
+                            id: 35,
+                            sName: "credit",
+                            date: "2017-11-09"
+             }
+
+        , ],
+                    catExpenses: [
+                        {
+                            id: 1,
+                            name: "car",
+            },
+                        {
+                            id: 2,
+                            name: "food",
+            },
+                        {
+                            id: 7,
+                            name: "house"
+            },
+        ],
+                    saves: [
+                        {
+                            id: 3,
+                            name: "visa",
+                            sum: 22,
+                            date: "2017-11-07",
+
+            },
+                        {
+                            id: 4,
+                            name: "cash",
+                            sum: 12,
+                            date: "2017-11-08",
+
+            },
+                        {
+                            id: 7,
+                            name: "bank",
+                            sum: 10,
+                            date: "2017-11-07",
+
+            }
+        ],
+                    incomes: [
+                        {
+                            id: 2,
+                            date: "2017-11-09",
+                            sum: 200,
+                            sourceId: 1,
+                            comments: " text"
+
+            },
+                        {
+                            id: 5,
+                            date: "2017-11-09",
+                            sum: 400,
+                            sourceId: 1,
+                            comments: "dgf"
+            },
+                        {
+                            id: 7,
+                            date: "2017-11-09",
+                            sum: 200,
+                            sourceId: 35,
+                            comments: " fhfh"
+            }
+        ],
+                    expences: [
+                        {
+                            id: 2,
+                            date: "2017-11-12",
+                            sum: "299",
+                            comments: "some text",
+                            catExpensesId: 2
+            },
+                        {
+                            id: 3,
+                            date: "2017-11-12",
+                            sum: "100",
+                            comments: "some text",
+                            catExpensesId: 1
+            }
+        ]
+                }];
+
+            $scope.spendSavesModal = function (id) {
+
+                //Відкриваєо модальне вікно
+                ngDialog.open({
+                    template: '../template/pages/spendSaves.html',
+                    className: 'ngdialog-theme-plain',
+                    scope: $scope
+                });
+            }
+
+            // по дефолту вибираємо перший select 
+            $scope.SelectedSave = $scope.users[0].saves[0];
+
+
+            $scope.spendSaves = function () {
+                
+            }
+
         }
     }
 });
-
 //directive account
 app.directive('accountBlock', function () {
     return {
@@ -170,7 +296,7 @@ app.directive('statsBlock', function () {
         replace: true,
         templateUrl: 'template/pages/statistic.html',
         controller: function ($scope) {
-               $scope.day = false;
+            $scope.day = false;
             $scope.dates = [
                 "1",
                 "2",
@@ -225,18 +351,18 @@ app.directive('statsBlock', function () {
                 "2019",
                 "2020"
             ]
-            $scope.selectDay = function() {
+            $scope.selectDay = function () {
                 $scope.day = true;
                 $scope.month = false;
                 $scope.year = false;
-                
+
             }
-             $scope.selectMonth = function() {
+            $scope.selectMonth = function () {
                 $scope.day = false;
                 $scope.month = true;
                 $scope.year = false;
             }
-              $scope.SelectYear = function() {
+            $scope.SelectYear = function () {
                 $scope.day = false;
                 $scope.month = false;
                 $scope.year = true;

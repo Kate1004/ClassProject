@@ -1,18 +1,6 @@
 <div class='sourses' ng-show='homeBlock'>
     <ul>
-        <li><a>House</a></li>
-        <li><a>Car</a></li>
-        <li><a>Food</a></li>
-        <li><a>Presents</a></li>
-        <li><a>Dog</a></li>
-        <li><a>Phone</a></li>
-        <li><a>...</a></li>
-        <li><a>...</a></li>
-        <li><a>...</a></li>
+        <li ng-repeat=" catExp in users[0].catExpenses "><a ng-click="spendSavesModal(catExp.id)" >{{catExp.name}}</a>
+        </li>
     </ul>
-                          
-  
-    
-    
 </div>
-
