@@ -507,3 +507,7 @@ input {
     background: lightgrey;
     font-size: 15px;
 }
+#piechart{
+    width: 900px;
+    height: 500px;
+}

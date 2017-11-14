@@ -193,7 +193,7 @@ app.directive('navBlock', function () {
                 $scope.homeBlock = false;
                 $scope.statsBlock = true;
             }
-               $scope.homePage = function () {
+            $scope.homePage = function () {
                 $scope.accountBlock = false;
                 $scope.homeBlock = true;
                 $scope.statsBlock = false;
@@ -254,8 +254,7 @@ app.directive('homeBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/home.html',
-        controller: function ($scope) {
-        }
+        controller: function ($scope) {}
     }
 });
 
@@ -273,7 +272,7 @@ app.directive('statsBlock', function () {
         replace: true,
         templateUrl: 'template/pages/statistic.html',
         controller: function ($scope) {
-               $scope.day = false;
+            $scope.day = false;
             $scope.dates = [
                 "1",
                 "2",
@@ -328,21 +327,45 @@ app.directive('statsBlock', function () {
                 "2019",
                 "2020"
             ]
-            $scope.selectDay = function() {
+            $scope.selectDay = function () {
                 $scope.day = true;
                 $scope.month = false;
                 $scope.year = false;
-                
+
             }
-             $scope.selectMonth = function() {
+            $scope.selectMonth = function () {
                 $scope.day = false;
                 $scope.month = true;
                 $scope.year = false;
             }
-              $scope.SelectYear = function() {
+            $scope.SelectYear = function () {
                 $scope.day = false;
                 $scope.month = false;
                 $scope.year = true;
+            }
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work', 11],
+          ['Eat', 2],
+          ['Commute', 2],
+          ['Watch TV', 2],
+          ['Sleep', 7]
+        ]);
+
+                var options = {
+                    title: 'My Daily Activities'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                chart.draw(data, options);
             }
         }
     }
