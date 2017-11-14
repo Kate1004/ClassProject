@@ -255,18 +255,37 @@ app.directive('homeBlock', function () {
         replace: true,
         templateUrl: 'template/pages/home.html',
         controller: function ($scope) {
+                    
         }
     }
 });
+
 
 //directive account
 app.directive('accountBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/account.html',
-        controller: function ($scope) {}
+        controller: function ($scope, ngDialog) {
+            
+//директива вікна Edit Acc
+        $scope.accEditBut =function(){
+            ngDialog.open({
+                template:'/template/pages/userpageedit.html',
+                className:'ngdialog-theme-default'
+            });
+        }   
+            
+            
+            
+        }
     }
 });
+
+
+
+
+
 //директива статистика
 app.directive('statsBlock', function () {
     return {

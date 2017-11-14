@@ -1,7 +1,7 @@
 <div ng-show="accountBlock">
     <div class="users-page">
         <div class="users-page-photo">
-            <img src="#" width="250px" height="250px" />
+            <img src="/public/img/user.jpg" width="250px" height="250px" />
         </div>
         <div class="users-page-information">
             <span>Name</span>
@@ -10,14 +10,16 @@
             <span>password</span>
             <span>age</span>
         </div>
+        
         <div class="users-page-edit">
-            <input type="button" value="edit"/>
-            <input type="button" value="delete"/>
+            <input type="button" value="edit" ng-click='accEditBut()'>
+            <input type="button" value="delete" ng-click='accDelBut()'>
         </div>
+        
         <div class="users-page-source">
-            <input type="button" value="Add source"/>
-            <input type="button" value="Delete source"/>
-            <input type="button" value="Edit source"/>
+            <input type="button" value="Add source">
+            <input type="button" value="Delete source">
+            <input type="button" value="Edit source">
         </div>
         <div class="users-page-saves">
             <input type="button" value="Add saves"/>
@@ -26,3 +28,5 @@
         </div>
     </div>
 </div>
+
+

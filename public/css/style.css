@@ -426,54 +426,105 @@ input {
 .users-page-photo {
     float: left;
     margin-left: 65px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .users-page-information {
     float: left;
     width: 500px;
     min-height: 100px;
-    /*border: 1px solid black;*/
+    border: 2px solid #3bc1a0;
     margin-left: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
 }
 
 .users-page-information span {
     display: block;
+    padding: 10px;
 }
 
 .users-page-edit {
     float: left;
+    
 }
 
 .users-page-edit input {
     display: block;
     margin: 15px;
     width: 70px;
+    height: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: #3bc1a0;
+
 }
 
 .users-page-source {
     position: absolute;
     top: 400px;
-    left: 15%;
+    left: 30%;
+    
 }
 
 
 .users-page-saves {
     position: absolute;
     top: 500px;
-    left: 15%;
+    left: 30%;
+    
 }
 
 .users-page-source input {
-    border-radius: 100%;
-    height: 90px;
-    width: 90px;
+    height: 100px;
+    width: 100px;
+    background-color: #3bc1a0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin: 15px;
+    display: block;
+	float: left;
+	cursor: pointer;
+	position: relative;
+    border-radius: 4px;
 }
 
 .users-page-saves input {
-    border-radius: 100%;
-    height: 90px;
-    width: 90px;
+
+    height: 100px;
+    width: 100px;
+    background-color: #3bc1a0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin: 15px;
+    margin-top: 40px;
+    display: block;
+	float: left;
+	cursor: pointer;
+	position: relative;
+    border-radius: 4px;
 }
+
+.users-page-source input:hover{
+    background-color: white;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 0.3s ease;
+    
+}
+.users-page-saves input:hover{
+    background-color: white;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* Сторінка СТАТИСТИКА*/
 .statistics {
     margin-left: 50%;
 }
