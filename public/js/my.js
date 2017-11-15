@@ -4,6 +4,115 @@ const app = angular.module('app', ['ngRoute', 'ngDialog']);
 //Створюємо контроллер
 app.controller('myCtrl', function ($scope, $http, ngDialog) {
     /*Включаємо форму логування*/
+
+    $scope.users = [
+        {
+
+            id: 1,
+            login: "Yura",
+            password: "some12345",
+            eMail: "some@some.s",
+            name: "Yura",
+            sname: "Volchak",
+            bDay: "1987-05-25",
+            photo: "1.png",
+            sources: [
+                {
+                    id: 1,
+                    sName: "freelance",
+                    date: "2017-11-07"
+             }
+            , {
+                    id: 24,
+                    sName: "present",
+                    date: "2017-11-08"
+             }
+            , {
+                    id: 35,
+                    sName: "credit",
+                    date: "2017-11-09"
+             }
+
+        , ],
+            catExpenses: [
+                {
+                    id: 1,
+                    name: "car",
+            },
+                {
+                    id: 2,
+                    name: "food",
+            },
+                {
+                    id: 7,
+                    name: "house"
+            },
+        ],
+            saves: [
+                {
+                    id: 3,
+                    name: "visa",
+                    sum: 22,
+                    date: "2017-11-07",
+
+            },
+                {
+                    id: 4,
+                    name: "cash",
+                    sum: 12,
+                    date: "2017-11-08",
+
+            },
+                {
+                    id: 7,
+                    name: "bank",
+                    sum: 10,
+                    date: "2017-11-07",
+
+            }
+        ],
+            incomes: [
+                {
+                    id: 2,
+                    date: "2017-11-09",
+                    sum: 200,
+                    sourceId: 1,
+                    comments: " text"
+
+            },
+                {
+                    id: 5,
+                    date: "2017-11-09",
+                    sum: 400,
+                    sourceId: 1,
+                    comments: "dgf"
+            },
+                {
+                    id: 7,
+                    date: "2017-11-09",
+                    sum: 200,
+                    sourceId: 35,
+                    comments: " fhfh"
+            }
+        ],
+            expences: [
+                {
+                    id: 2,
+                    date: "2017-11-12",
+                    sum: "299",
+                    comments: "some text",
+                    catExpensesId: 2
+            },
+                {
+                    id: 3,
+                    date: "2017-11-12",
+                    sum: "100",
+                    comments: "some text",
+                    catExpensesId: 1
+            }
+        ]
+                }];
+
     $scope.loginBlock = true;
     $scope.ShowHomeBlock = function () {
         /*Включаємо інтерфейс коритувача*/
@@ -67,10 +176,18 @@ app.directive('headerBlock', function () {
                     scope: $scope
                 });
             }
-            
-            // 
-//            $scope.SelectedSource = $scope.users[0].sources[0];
-//            $scope.SelectedSave = $scope.users[0].saves[0];
+//дeфолтні select
+            $scope.SelectedSource = $scope.users[0].sources[0];
+            $scope.SelectedIncomeSave = $scope.users[0].saves[0];
+//дефолтна сума
+            $scope.IncomeSumm = 1;
+            // Додаємо наші витрати
+            $scope.addIncome = function(){
+                let obj = {
+                    Дохід: "великий"
+                }
+                console.log(obj);
+            }
         }
     }
 });
@@ -165,113 +282,7 @@ app.directive('homeBlock', function () {
         templateUrl: 'template/pages/home.html',
         controller: function ($scope, ngDialog) {
             //Локальна змінна для даних
-            $scope.users = [
-                {
 
-                    id: 1,
-                    login: "Yura",
-                    password: "some12345",
-                    eMail: "some@some.s",
-                    name: "Yura",
-                    sname: "Volchak",
-                    bDay: "1987-05-25",
-                    photo: "1.png",
-                    sources: [
-                        {
-                            id: 1,
-                            sName: "freelance",
-                            date: "2017-11-07"
-             }
-            , {
-                            id: 24,
-                            sName: "present",
-                            date: "2017-11-08"
-             }
-            , {
-                            id: 35,
-                            sName: "credit",
-                            date: "2017-11-09"
-             }
-
-        , ],
-                    catExpenses: [
-                        {
-                            id: 1,
-                            name: "car",
-            },
-                        {
-                            id: 2,
-                            name: "food",
-            },
-                        {
-                            id: 7,
-                            name: "house"
-            },
-        ],
-                    saves: [
-                        {
-                            id: 3,
-                            name: "visa",
-                            sum: 22,
-                            date: "2017-11-07",
-
-            },
-                        {
-                            id: 4,
-                            name: "cash",
-                            sum: 12,
-                            date: "2017-11-08",
-
-            },
-                        {
-                            id: 7,
-                            name: "bank",
-                            sum: 10,
-                            date: "2017-11-07",
-
-            }
-        ],
-                    incomes: [
-                        {
-                            id: 2,
-                            date: "2017-11-09",
-                            sum: 200,
-                            sourceId: 1,
-                            comments: " text"
-
-            },
-                        {
-                            id: 5,
-                            date: "2017-11-09",
-                            sum: 400,
-                            sourceId: 1,
-                            comments: "dgf"
-            },
-                        {
-                            id: 7,
-                            date: "2017-11-09",
-                            sum: 200,
-                            sourceId: 35,
-                            comments: " fhfh"
-            }
-        ],
-                    expences: [
-                        {
-                            id: 2,
-                            date: "2017-11-12",
-                            sum: "299",
-                            comments: "some text",
-                            catExpensesId: 2
-            },
-                        {
-                            id: 3,
-                            date: "2017-11-12",
-                            sum: "100",
-                            comments: "some text",
-                            catExpensesId: 1
-            }
-        ]
-                }];
 
             $scope.spendSavesModal = function (id) {
 
@@ -286,9 +297,12 @@ app.directive('homeBlock', function () {
             // по дефолту вибираємо перший select 
             $scope.SelectedSave = $scope.users[0].saves[0];
 
-
+//Відсилаємо наші витрати
             $scope.spendSaves = function () {
-                console.log()
+                let obj = {
+                 Витарти: "непогані"
+                }
+                console.log(obj);
             }
 
         }
