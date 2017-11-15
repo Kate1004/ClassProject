@@ -46,7 +46,7 @@ app.directive('headerBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/header.html',
-        controller: function ($scope) {
+        controller: function ($scope, ngDialog) {
             $scope.loginStatus = false;
             $scope.contentStatus = false;
             $scope.registrStatus = true;
@@ -59,6 +59,18 @@ app.directive('headerBlock', function () {
                  $scope.menuStatus = false;
 
              }*/
+            //відкриваємо діалогове вікно для додавання доходу
+            $scope.openIncomes = function () {
+                ngDialog.open({
+                    template: '../template/pages/incomeAdd.html',
+                    className: 'ngdialog-theme-plain',
+                    scope: $scope
+                });
+            }
+            
+            // 
+//            $scope.SelectedSource = $scope.users[0].sources[0];
+//            $scope.SelectedSave = $scope.users[0].saves[0];
         }
     }
 });
@@ -276,7 +288,7 @@ app.directive('homeBlock', function () {
 
 
             $scope.spendSaves = function () {
-                
+                console.log()
             }
 
         }

@@ -1,0 +1,47 @@
+<div>
+    <center>
+        <h2 class="ngdialog-content ">Add new incomes</h2>
+        <br>
+
+        <label for="Sources">Chouse source</label>
+
+        <select ng-model="SelectedSource" name="sources" ng-options=" source.sName for source in users[0].sources track by source.id "></select> ID: {{SelectedSource.id}}
+        <br><br>
+
+        <label for="name">Name</label>
+        <br>
+        <input name="name" type="text" ng-model="IncomeName">
+
+        <br><br>
+
+        <label for="comment">Comment</label>
+        <br>
+        <input name="comment" type="text" ng-model="IncomeComment">
+
+        <br><br>
+
+        <label for="comment">Summ</label>
+        <br>
+        <input name="comment" type="number" min="1" ng-model="IncomeSumm" value="1">
+        <br>
+        <br>
+
+        <label for="Sources">Chouse Save</label>
+
+        <select ng-model="SelectedSave" name="save" ng-options=" save.name for save in users[0].saves track by save.id "></select> Sum: {{SelectedSave.sum}}
+        <br><br>
+        <p>Total: {{SelectedSave.sum | currency}} 
+           +
+            <span style="color: #17c76f"> {{IncomeSumm | currency}}</span>
+           =
+           <span style="color: #088beb">{{SelectedSave.sum + IncomeSumm | currency }}</span>
+            
+        </p>
+        <br>
+        <button class="btn" id="SendExpense" ng-click="spendSaves()" ng-if="(ExpenseName && SummName && CommentName)? true : false">
+        Add Income
+        </button>
+    </center>
+
+    <!--    <input type="button" ng-click="ngDialog.closeAll()" value="Register">-->
+</div>
