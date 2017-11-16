@@ -264,7 +264,16 @@ app.directive('registrBlock', function () {
         controller: function ($scope) {
 
             $scope.registerAcc = function () {
-                console.log("registr");
+                let obj = {
+                    name: $scope.RegName ,
+                    sname: $scope.RegSurname ,
+                    email: $scope.RegMail ,
+                    login: $scope.RegLogin ,
+                    pass: $scope.RegPassword ,
+                    bDate: $scope.RegBDate
+                }
+                
+                console.log(obj);
             }
 
             $scope.closeRegAcc = function () {
