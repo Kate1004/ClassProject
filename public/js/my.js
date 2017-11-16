@@ -292,8 +292,8 @@ app.directive('historyBlock', function () {
         replace: true,
         templateUrl: 'template/pages/history.html',
         controller: function ($scope) {
-//            <!--НІЧОГО НЕ ВИДАЛЯТИ-->
-            $scope.users = [
+            //            <!--НІЧОГО НЕ ВИДАЛЯТИ-->
+            $scope.users= [
                 {
                     id: 1,
                     login: "Yura",
@@ -400,9 +400,20 @@ app.directive('historyBlock', function () {
         ]
     }
 ];
+
+            $scope.incomesTb = true;
+
+            $scope.changeIncomes = function () {
+                $scope.incomesTb = true;
+                $scope.expensesTb = false;
+            }
             
-            
-            
+            $scope.changeExpenses = function () {
+                $scope.incomesTb = false;
+                $scope.expensesTb = true;
+            }
+
+
         }
     }
 });
