@@ -513,7 +513,7 @@ input {
 /*history block*/
 .history-page-filter {
     margin-left: 170px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 .history-page-filter input {
@@ -541,4 +541,13 @@ input {
 
 .history-page-table table tr td {
     border: 1px solid black; 
+}
+
+.history-page-choose {
+    margin-left: 45%;
+    margin-bottom: 40px;
+}
+
+.history-page-choose input:hover {
+    background-color: yellow;
 }
