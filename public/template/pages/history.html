@@ -1,18 +1,18 @@
 <div ng-show="historyBlock">
     <div class="history-page">
         <div class="history-page-filter">
-            <input type="button" value="Jan" ng-click="dataFilter = '-01-'">
-            <input type="button" value="Feb" ng-click="dataFilter = '-02-'">
-            <input type="button" value="Mar" ng-click="dataFilter = '-03-'">
-            <input type="button" value="Apr" ng-click="dataFilter = '-04-'">
-            <input type="button" value="May" ng-click="dataFilter = '-05-'">
-            <input type="button" value="June" ng-click="dataFilter = '-06-'">
-            <input type="button" value="Jul" ng-click="dataFilter = '-07-'">
-            <input type="button" value="Aug" ng-click="dataFilter = '-08-'">
-            <input type="button" value="Sept" ng-click="dataFilter = '-09-'">
-            <input type="button" value="Oct" ng-click="dataFilter = '-10-'">
-            <input type="button" value="Nov" ng-click="dataFilter = '-11-'">
-            <input type="button" value="Dec" ng-click="dataFilter = '-12-'">
+            <input type="button" value="Jan" ng-click="dataFilter = '.01.'">
+            <input type="button" value="Feb" ng-click="dataFilter = '.02.'">
+            <input type="button" value="Mar" ng-click="dataFilter = '.03.'">
+            <input type="button" value="Apr" ng-click="dataFilter = '.04.'">
+            <input type="button" value="May" ng-click="dataFilter = '.05.'">
+            <input type="button" value="June" ng-click="dataFilter = '.06.'">
+            <input type="button" value="Jul" ng-click="dataFilter = '.07.'">
+            <input type="button" value="Aug" ng-click="dataFilter = '.08.'">
+            <input type="button" value="Sept" ng-click="dataFilter = '.09.'">
+            <input type="button" value="Oct" ng-click="dataFilter = '.10.'">
+            <input type="button" value="Nov" ng-click="dataFilter = '.11.'">
+            <input type="button" value="Dec" ng-click="dataFilter = '.12.'">
         </div>
         <div class="history-page-choose">
             <input type="button" value="incomes" ng-click="changeIncomes()">
@@ -29,25 +29,17 @@
                         <td>source</td>
                         <td>comments</td>
                     </tr>
-                    <tr ng-repeat="a in tablesInc">
+                    <tr ng-repeat="a in tablesInc | filter: dataFilter">
                         <td>{{a.dateIncomes}}</td>
                         <td>{{a.sumIncomes}}</td>
                         <td>incomes</td>
                         <td>{{a.id_sources}}</td>
                         <td>{{a.comments}}</td>
                     </tr>
-                    <!--
-                <tr>
-                    <td ng-repeat="a in users">{{a.incomes[0].date}}</td>
-                    <td ng-repeat="a in users">{{a.incomes[0].sum}}</td>
-                    <td>incomes</td>
-                    <td ng-repeat="a in users">{{a.sources[0].sName}}</td>
-                    <td ng-repeat="a in users">{{a.catExpenses[1].name}}</td>
-                    <td ng-repeat="a in users">{{a.incomes[0].comments}}</td>
-                </tr>
--->
                 </table>
             </div>
+            
+<!--            ng-repeat="a in users | filter: dataFilter"-->
             <div class="history-table-expenses" ng-show="expensesTb">
                <span>EXPENSES</span>
                 <table>
@@ -59,24 +51,14 @@
                         <td>for</td>
                         <td>comments</td>
                     </tr>
-                    <tr ng-repeat="a in users">
-                        <td ng-repeat="a in users | filter: dataFilter">{{a.expences[0].date}}</td>
-                        <td ng-repeat="a in users">{{a.expences[0].sum}}</td>
+                    <tr ng-repeat="b in tablesExp">
+                        <td>{{b.dateExpenses}}</td>
+                        <td>{{b.sumExpenses}}</td>
                         <td>expences</td>
-                        <td ng-repeat="a in users"></td>
-                        <td ng-repeat="a in users">{{a.catExpenses[0].name}}</td>
-                        <td ng-repeat="a in users">{{a.expences[0].comments}}</td>
+                        <td>{{b.id_saves}}</td>
+                        <td>{{b.id_catExpenses}}</td>
+                        <td>{{b.commentsExpenses}}</td>
                     </tr>
-                    <!--
-                <tr>
-                    <td ng-repeat="a in users">{{a.incomes[0].date}}</td>
-                    <td ng-repeat="a in users">{{a.incomes[0].sum}}</td>
-                    <td>incomes</td>
-                    <td ng-repeat="a in users">{{a.sources[0].sName}}</td>
-                    <td ng-repeat="a in users">{{a.catExpenses[1].name}}</td>
-                    <td ng-repeat="a in users">{{a.incomes[0].comments}}</td>
-                </tr>
--->
                 </table>
             </div>
         </div>
