@@ -138,7 +138,7 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
     }
 
     /*Написано Дмитром*/
-    /*Якщо бзер заходить впереше*/
+    /*Якщо юзер заходить впереше*/
     if (localStorage.login == "undefined") {
         localStorage.login = "Guest"
     }
@@ -293,7 +293,8 @@ app.directive('homeBlock', function () {
                     scope: $scope
                 });
             }
-
+            //
+            $scope.SummName = 1;
             // по дефолту вибираємо перший select 
             $scope.SelectedSave = $scope.users[0].saves[0];
 

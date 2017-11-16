@@ -29,13 +29,13 @@
 
             <label for="Sources">Chouse Save</label>
 
-            <select ng-model="SelectedIncomeSave" name="save" ng-options=" save.name for save in users[0].saves track by save.id "></select> Sum: {{SelectedIncomeSave.sum}}
+            <select ng-model="SelectedIncomeSave" name="save" ng-options=" save.name for save in users[0].saves track by save.id "></select>
             <br><br>
-            <p>Total: {{SelectedSave.sum | currency}} +
-                <span style="color: #17c76f"> {{IncomeSumm | currency}}</span> =
-                <span style="color: #088beb">{{SelectedSave.sum + IncomeSumm | currency }}</span>
 
-            </p>
+            <span>Total: {{SelectedIncomeSave.sum | currency}} +</span>
+            <span style="color: #17c76f"> {{IncomeSumm | currency}}</span> =
+            <span style="color: #088beb">{{SelectedIncomeSave.sum + IncomeSumm | currency }}</span>
+            
             <br>
             <button class="btn" id="SendExpense" ng-click="addIncome()" ng-if="(IncomeName && IncomeComment && IncomeSumm)? true : false">
         Add Income
