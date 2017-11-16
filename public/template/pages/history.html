@@ -20,22 +20,21 @@
         </div>
         <div class="history-page-table">
             <div class="history-table-incomes" ng-show="incomesTb">
+               <span>INCOMES</span>
                 <table>
                     <tr>
                         <td>date</td>
                         <td>sum</td>
                         <td>type</td>
                         <td>source</td>
-                        <td>for</td>
                         <td>comments</td>
                     </tr>
-                    <tr ng-repeat="a in users">
-                        <td ng-repeat="a in users | filter: dataFilter">{{a.expences[0].date}}</td>
-                        <td ng-repeat="a in users">{{a.expences[0].sum}}</td>
+                    <tr ng-repeat="a in tablesInc">
+                        <td>{{a.dateIncomes}}</td>
+                        <td>{{a.sumIncomes}}</td>
                         <td>incomes</td>
-                        <td ng-repeat="a in users"></td>
-                        <td ng-repeat="a in users">{{a.catExpenses[0].name}}</td>
-                        <td ng-repeat="a in users">{{a.expences[0].comments}}</td>
+                        <td>{{a.id_sources}}</td>
+                        <td>{{a.comments}}</td>
                     </tr>
                     <!--
                 <tr>
@@ -50,6 +49,7 @@
                 </table>
             </div>
             <div class="history-table-expenses" ng-show="expensesTb">
+               <span>EXPENSES</span>
                 <table>
                     <tr>
                         <td>date</td>

@@ -291,7 +291,7 @@ app.directive('historyBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/history.html',
-        controller: function ($scope) {
+        controller: function ($scope, $http) {
             //            <!--НІЧОГО НЕ ВИДАЛЯТИ-->
             $scope.users= [
                 {
@@ -399,7 +399,24 @@ app.directive('historyBlock', function () {
             }
         ]
     }
-];
+];          
+//            Масив для отримання expenses/incomes
+            $scope.tablesInc = [];
+            $scope.tablesExp = [];
+//            отримання 
+            $http.get('http://localhost:8000/tablesInc')
+                .then(function successCallback(response) {
+                    $scope.tablesInc = response.data;
+                }, function errorCallback(response) {
+                    console.log("Error!!!" + response.err);
+                });
+            
+            $http.get('http://localhost:8000/tablesExp')
+                .then(function successCallback(response) {
+                    $scope.tablesExp = response.data;
+                }, function errorCallback(response) {
+                    console.log("Error!!!" + response.err);
+                });
 
             $scope.incomesTb = true;
 
@@ -407,7 +424,7 @@ app.directive('historyBlock', function () {
                 $scope.incomesTb = true;
                 $scope.expensesTb = false;
             }
-            
+
             $scope.changeExpenses = function () {
                 $scope.incomesTb = false;
                 $scope.expensesTb = true;

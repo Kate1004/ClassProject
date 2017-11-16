@@ -139,6 +139,23 @@ app.post('userExpenses', function (req, res) {
      );   
     });
 
+//Отримання даних в таблицю incomes
+app.get('/tablesInc', function (req, res) {
+    connection.query('SELECT * FROM incomes', function (err, rows) {
+        if (err) throw err;
+        console.log('get all incomes, length: ' + rows.length);
+        res.status(200).send(rows);
+    });
+});
+
+//Отримання даних в таблицю expenses
+app.get('/tablesExp', function (req, res) {
+    connection.query('SELECT * FROM expenses', function (err, rows) {
+        if (err) throw err;
+        console.log('get all expenses, length: ' + rows.length);
+        res.status(200).send(rows);
+    });
+});
 
 
 
