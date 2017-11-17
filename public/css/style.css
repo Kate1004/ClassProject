@@ -515,22 +515,16 @@ input {
 
 .users-page-information-edit input{
     padding: 10px;
-   box-shadow: 1px 5px 10px -5px black; 
+    box-shadow: 1px 5px 10px -5px black; 
 }
 
 .users-page-information-edit input[type='button']{
-    display: block;
-    margin: 15px;
     width: 70px;
     height: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     background-color: #3bc1a0;
 }
-
-
-
-
 
 /* Сторінка СТАТИСТИКА */
 
@@ -567,3 +561,19 @@ input {
     background: lightgrey;
     font-size: 15px;
 }
+
+/* Модальне вікно INCOMES */
+.incomesModal{  
+    float: left;
+    padding: 10px;
+    height: 50px;
+    line-height: 30px;
+    width: 50px;
+}
+
+
+
+
+
+
+

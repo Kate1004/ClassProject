@@ -153,7 +153,7 @@ app.directive('headerBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/header.html',
-        controller: function ($scope) {
+        controller: function ($scope, ngDialog) {
             $scope.loginStatus = false;
             $scope.contentStatus = false;
             $scope.registrStatus = true;
@@ -166,6 +166,14 @@ app.directive('headerBlock', function () {
                  $scope.menuStatus = false;
 
              }*/
+            
+            //директива вікна Incomes
+        $scope.openIncomes =function(){
+            ngDialog.open({
+                template:'/template/pages/incomes.html',
+                className:'ngdialog-theme-default'
+            });
+        }  
         }
     }
 });
