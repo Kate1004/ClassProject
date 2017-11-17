@@ -155,36 +155,41 @@ app.directive('headerBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/header.html',
-        controller: function ($scope, ngDialog) {
-            $scope.loginStatus = false;
-            $scope.contentStatus = false;
-            $scope.registrStatus = true;
-            //Кнопка SIGN UP
-            /* $scope.chooseSignUp = function () {
-                 $scope.loginStatus = true;
-                 $scope.contentStatus = false;
-                 $scope.registrStatus = false;
-                 $scope.headerStatus = false;
-                 $scope.menuStatus = false;
-
-             }*/
+        controller: function ($scope, ngDialog) {           
             //відкриваємо діалогове вікно для додавання доходу
             $scope.openIncomes = function () {
                 ngDialog.open({
-                    template: '../template/pages/incomeAdd.html',
+                    template: '../template/pages/incomeAddModal.html',
                     className: 'ngdialog-theme-plain',
                     scope: $scope
                 });
             }
-//дeфолтні select
-            $scope.SelectedSource = $scope.users[0].sources[0];
+        }
+    }
+});
+
+app.directive("addIncome", function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/incomeAdd.html',
+        controller: function ($scope, ngDialog) {
+            //дeфолтні select
+            $scope.SelectedIncomeSource = $scope.users[0].sources[0];
             $scope.SelectedIncomeSave = $scope.users[0].saves[0];
-//дефолтна сума
-            $scope.IncomeSumm = 1;
+            //дефолтна сума
+            $scope.IncomeSum = 1;
+            //Обраховуємо суму сейву
+            $scope.newSaveSum = $scope.SelectedIncomeSave.sum + $scope.IncomeSum;
             // Додаємо наші витрати
-            $scope.addIncome = function(){
+
+
+            $scope.addIncome = function () {
                 let obj = {
-                    Дохід: "великий"
+                    sourceId: $scope.SelectedIncomeSource.id,
+                    name: $scope.IncomeName,
+                    comment: $scope.IncomeComment,
+                    sum: $scope.IncomeSum,
+                    saveId: $scope.SelectedIncomeSave.id
                 }
                 console.log(obj);
             }
@@ -265,14 +270,14 @@ app.directive('registrBlock', function () {
 
             $scope.registerAcc = function () {
                 let obj = {
-                    name: $scope.RegName ,
-                    sname: $scope.RegSurname ,
-                    email: $scope.RegMail ,
-                    login: $scope.RegLogin ,
-                    pass: $scope.RegPassword ,
+                    name: $scope.RegName,
+                    sname: $scope.RegSurname,
+                    email: $scope.RegMail,
+                    login: $scope.RegLogin,
+                    pass: $scope.RegPassword,
                     bDate: $scope.RegBDate
                 }
-                
+
                 console.log(obj);
             }
 
@@ -307,10 +312,10 @@ app.directive('homeBlock', function () {
             // по дефолту вибираємо перший select 
             $scope.SelectedSave = $scope.users[0].saves[0];
 
-//Відсилаємо наші витрати
+            //Відсилаємо наші витрати
             $scope.spendSaves = function () {
                 let obj = {
-                 Витарти: "непогані"
+                    Витарти: "непогані"
                 }
                 console.log(obj);
             }

@@ -1,4 +1,4 @@
-<div>
+<div class="ngdialog-theme-plain">
     <center>
         <div>
             <h2 class="ngdialog-content ">Add new incomes</h2>
@@ -6,24 +6,25 @@
 
             <label for="Sources">Chouse source</label>
 
-            <select ng-model="SelectedSource" name="sources" ng-options=" source.sName for source in users[0].sources track by source.id "></select> ID: {{SelectedSource.id}}
+            <select ng-model="SelectedIncomeSource" name="sources" ng-options=" source.sName for source in users[0].sources track by source.id "></select> ID: {{SelectedIncomeSource.id}}
             <br><br>
 
             <label for="name">Name</label>
             <br>
+            
             <input name="name" type="text" ng-model="IncomeName">
 
             <br><br>
 
             <label for="comment">Comment</label>
             <br>
+            
             <input name="comment" type="text" ng-model="IncomeComment">
-
             <br><br>
 
-            <label for="comment">Summ</label>
+            <label for="Sum">Sum</label>
             <br>
-            <input name="comment" type="number" min="1" ng-model="IncomeSumm" value="1">
+            <input name="Sum" type="number" min="1" ng-model="IncomeSum" value="1">
             <br>
             <br>
 
@@ -33,15 +34,13 @@
             <br><br>
 
             <span>Total: {{SelectedIncomeSave.sum | currency}} +</span>
-            <span style="color: #17c76f"> {{IncomeSumm | currency}}</span> =
-            <span style="color: #088beb">{{SelectedIncomeSave.sum + IncomeSumm | currency }}</span>
-            
+            <span style="color: #17c76f"> {{IncomeSum | currency}}</span> =
+            <span style="color: #088beb">{{ SelectedIncomeSave.sum + IncomeSum | currency }}</span>
             <br>
-            <button class="btn" id="SendExpense" ng-click="addIncome()" ng-if="(IncomeName && IncomeComment && IncomeSumm)? true : false">
+            
+            <button class="btn" id="SendExpense" ng-click="addIncome()" ng-if="(IncomeName && IncomeComment && IncomeSum)? true : false">
         Add Income
         </button>
         </div>
     </center>
-
-    <!--    <input type="button" ng-click="ngDialog.closeAll()" value="Register">-->
 </div>
