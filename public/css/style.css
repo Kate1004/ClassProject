@@ -426,15 +426,15 @@ input {
 .users-page-photo {
     float: left;
     margin-left: 65px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
 }
 
 .users-page-information {
     float: left;
     width: 500px;
     min-height: 100px;
-    border: 2px solid #3bc1a0;
     margin-left: 20px;
+    border: 2px solid #3bc1a0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     border-radius: 4px;
@@ -443,12 +443,10 @@ input {
 
 .users-page-information span {
     display: block;
-    padding: 10px;
 }
 
 .users-page-edit {
     float: left;
-    
 }
 
 .users-page-edit input {
@@ -459,7 +457,6 @@ input {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     background-color: #3bc1a0;
-
 }
 
 .users-page-source {
@@ -474,7 +471,6 @@ input {
     position: absolute;
     top: 500px;
     left: 30%;
-    
 }
 
 .users-page-source input {
@@ -491,20 +487,18 @@ input {
 }
 
 .users-page-saves input {
-
-    height: 100px;
+   height: 100px;
     width: 100px;
     background-color: #3bc1a0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     margin: 15px;
-    margin-top: 40px;
+    margin-top: 30px;
     display: block;
 	float: left;
 	cursor: pointer;
 	position: relative;
     border-radius: 4px;
 }
-
 .users-page-source input:hover{
     background-color: white;
     box-shadow: 1px 5px 10px -5px black;
@@ -517,14 +511,29 @@ input {
     transition: all 0.3s ease;
 }
 
+ /* Модальне вікно User Edit */
+
+.users-page-information-edit input{
+    padding: 10px;
+   box-shadow: 1px 5px 10px -5px black; 
+}
+
+.users-page-information-edit input[type='button']{
+    display: block;
+    margin: 15px;
+    width: 70px;
+    height: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    background-color: #3bc1a0;
+}
 
 
 
 
 
+/* Сторінка СТАТИСТИКА */
 
-
-/* Сторінка СТАТИСТИКА*/
 .statistics {
     margin-left: 50%;
 }

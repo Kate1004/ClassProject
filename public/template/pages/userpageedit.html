@@ -1,15 +1,40 @@
 <div class='users-page-information-edit'>
-            <form role=form name="users-page-information-edit" novalidate>
-                <fieldset>
-                        <input type="text" value='newName'>
-                        <input type="text" value='newSName'>
-                        <input type="text" value='newEmail'>
-                        <input type="text" value='newPassword'>
-                        <input type="text" value='newAge'>
-                </fieldset>
-                <input type='button' value="Save">
-                <input type='button' value="Cancel">
-                
-            </form>
+    <form role=form name="users-page-information-edit-form" novalidate>
+        <fieldset>
+            <table>
+                <tr>
+                    <td>
+                        <p>Name</p>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="newName" value="New name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Surname</p>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="newsname" value="new sname" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>E-mail</p>
+                    </td>
+                    <td>
+                        <input type="email" ng-model="newEmail" value="E-mail" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Date of birth</p>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="newDateOfBirth" value="ДД.ММ.РР" required>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type='button' value="Save"> </form>
 </div>
-        
