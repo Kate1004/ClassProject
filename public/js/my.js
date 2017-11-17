@@ -155,7 +155,7 @@ app.directive('headerBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/header.html',
-        controller: function ($scope, ngDialog) {           
+        controller: function ($scope, ngDialog) {
             //відкриваємо діалогове вікно для додавання доходу
             $scope.openIncomes = function () {
                 ngDialog.open({
@@ -167,7 +167,7 @@ app.directive('headerBlock', function () {
         }
     }
 });
-
+// Додати надходження
 app.directive("addIncome", function () {
     return {
         replace: true,
@@ -197,6 +197,7 @@ app.directive("addIncome", function () {
     }
 });
 /*навігація*/
+
 app.directive('navBlock', function () {
     return {
         replace: true,
@@ -302,24 +303,35 @@ app.directive('homeBlock', function () {
 
                 //Відкриваєо модальне вікно
                 ngDialog.open({
-                    template: '../template/pages/spendSaves.html',
+                    template: '../template/pages/spendSavesModal.html',
                     className: 'ngdialog-theme-plain',
                     scope: $scope
                 });
             }
-            //
-            $scope.SummName = 1;
+        }
+    }
+});
+//Витарати
+app.directive("spendSaves", function () {
+    return {
+        replace: true,
+        templateUrl: 'template/pages/spendSaves.html',
+        controller: function ($scope, ngDialog) {
+            //Дефолтна сума
+            $scope.ExpenseSum = 1;
             // по дефолту вибираємо перший select 
-            $scope.SelectedSave = $scope.users[0].saves[0];
+            $scope.SelectedExpenseSave = $scope.users[0].saves[0];
 
             //Відсилаємо наші витрати
             $scope.spendSaves = function () {
                 let obj = {
-                    Витарти: "непогані"
+                    name: $scope.ExpenseName,
+                    comment: $scope.ExpenseSum,
+                    sum: $scope.ExpenseSum,
+                    saveId: $scope.SelectedExpenseSave.id
                 }
                 console.log(obj);
             }
-
         }
     }
 });

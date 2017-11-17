@@ -35,7 +35,7 @@
 
             <span>Total: {{SelectedIncomeSave.sum | currency}} +</span>
             <span style="color: #17c76f"> {{IncomeSum | currency}}</span> =
-            <span style="color: #088beb">{{ SelectedIncomeSave.sum + IncomeSum | currency }}</span>
+            <span style="color: #ed4061">{{ SelectedIncomeSave.sum + IncomeSum | currency }}</span>
             <br>
             
             <button class="btn" id="SendExpense" ng-click="addIncome()" ng-if="(IncomeName && IncomeComment && IncomeSum)? true : false">

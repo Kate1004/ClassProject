@@ -12,31 +12,31 @@
         <label for="comment">Comment</label>
         <br>
         
-        <input name="comment" type="text" ng-model="CommentName">
+        <input name="comment" type="text" ng-model="ExpenseComment">
         <br>
         <br>
 
-        <label for="comment">Summ</label>
+        <label for="sum">Sum</label>
         <br>
         
-        <input name="comment" type="number" min="1" value="1" max={{SelectedSave.sum}} ng-model="SummName">
+        <input name="sum" type="number" min="1" value="1" max={{SelectedExpenseSave.sum}} ng-model="ExpenseSum">
         <br>
         <br>
 
         <label for="Sources">Chouse source</label>
 
-        <select ng-model="SelectedSave" name="Sources" ng-options=" save.name for save in users[0].saves track by save.id "></select>
+        <select ng-model="SelectedExpenseSave" name="Sources" ng-options=" save.name for save in users[0].saves track by save.id "></select>
         <br>
         
-        <span>Total: {{SelectedSave.sum | currency}}</span>
-        <span style="color: lightcoral">- {{SummName| currency}}</span>
-        <span style="color: #17c76f"> = {{SelectedSave.sum - SummName | currency}}</span>
+        <span>Total: {{SelectedExpenseSave.sum | currency}}</span>
+        <span style="color: lightcoral">- {{ExpenseSum| currency}}</span>
+        <span style="color: #1776c7"> = {{SelectedExpenseSave.sum - ExpenseSum | currency}}</span>
 
         <br>
         <br>
 
-        <button class="btn" id="SendExpense" ng-click="spendSaves()" ng-if="(ExpenseName && SummName && CommentName)? true : false">
-        Add Income
+        <button class="btn" ng-click="spendSaves()" ng-if="(ExpenseName && ExpenseSum && ExpenseComment)? true : false">
+        Add Expense
         </button>
     </center>
 
