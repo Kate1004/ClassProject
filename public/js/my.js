@@ -348,6 +348,7 @@ app.directive('statsBlock', function () {
             google.charts.load('current', {
                 'packages': ['corechart']
             });
+            // incomes
             google.charts.setOnLoadCallback(drawChartI);
 
             function drawChartI() {
@@ -369,22 +370,19 @@ app.directive('statsBlock', function () {
                 chartI.draw(dataI, optionsI);
             }
 
-            //витрати
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-            google.charts.setOnLoadCallback(drawChart);
+            //expenses
+            google.charts.setOnLoadCallback(drawChartE);
 
-            function drawChart() {
+            function drawChartE() {
 
                 var dataE = google.visualization.arrayToDataTable([
-          ['id_exp', 'total'],
-          ['Work', 11],
-          ['House', 2],
-          ['Foot', 2],
-          ['Dog', 2],
-          ['Phone', 7]
-        ]);
+                    ['id_exp', 'total'],
+                    ['Work', 11],
+                    ['House', 2],
+                    ['Foot', 2],
+                    ['Dog', 2],
+                    ['Phone', 7]
+                ]);
 
                 var optionsE = {
                     title: 'Expenses'
@@ -395,36 +393,29 @@ app.directive('statsBlock', function () {
                 chartE.draw(dataE, optionsE);
             }
 
+//savings
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var dataS = google.visualization.arrayToDataTable([
+                    ['ID', '%'],
+                    ['Cash',     11],
+                    ['Credit',      2],
+                    ['Socks',  2],
+                    ['etc', 2]
+                ]);
 
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-            google.charts.setOnLoadCallback(drawSeriesChart);
-
-            function drawSeriesChart() {
-
-                var data = google.visualization.arrayToDataTable([
-        ['ID', 'value', 'Date created'],
-        ['Cash', 50.66, 3],
-        ['Credit', 79.84, 3],
-        ['Socks', 38.6, 5],
-        ['etc', 21.73, 7]
-      ]);
-
-                var options = {
+                var optionsS = {
                     title: 'Savings',
-                    bubble: {
-                        textStyle: {
-                            fontSize: 12
-                        }
-                    }
+                    pieHole: 0.4,
                 };
 
-                var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
-                chart.draw(data, options);
+                var chartS = new google.visualization.PieChart(document.getElementById('savings'));
+                chartS.draw(dataS, optionsS);
             }
 
 
         }
     }
 });
+
