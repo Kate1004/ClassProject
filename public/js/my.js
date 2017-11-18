@@ -393,15 +393,18 @@ app.directive('statsBlock', function () {
                 chartE.draw(dataE, optionsE);
             }
 
-//savings
-            google.charts.load("current", {packages:["corechart"]});
+            //savings
+            google.charts.load("current", {
+                packages: ["corechart"]
+            });
             google.charts.setOnLoadCallback(drawChart);
+
             function drawChart() {
                 var dataS = google.visualization.arrayToDataTable([
                     ['ID', '%'],
-                    ['Cash',     11],
-                    ['Credit',      2],
-                    ['Socks',  2],
+                    ['Cash', 11],
+                    ['Credit', 2],
+                    ['Socks', 2],
                     ['etc', 2]
                 ]);
 
@@ -414,8 +417,6 @@ app.directive('statsBlock', function () {
                 chartS.draw(dataS, optionsS);
             }
 
-
         }
     }
 });
-
