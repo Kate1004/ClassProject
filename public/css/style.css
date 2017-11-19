@@ -512,7 +512,7 @@ input {
 
 /*history block*/
 .history-page-filter {
-    margin-left: 170px;
+    text-align: center;
     margin-bottom: 35px;
 }
 
@@ -530,14 +530,15 @@ input {
 }
 
 .history-page-table {
-    margin-left: 170px;
     font-size: 15px;
     text-align: center;
+    height: 200px;
 }
 
 .history-page-table table {
-    width: 1120px;
-    height: 250px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .history-page-table td {
@@ -545,14 +546,17 @@ input {
 }
 
 .history-page-table table td {
-    border: 1px solid black; 
 }
 
-.history-page-table th {
-    border: 1px solid black;
-    background-color: #ea6153;
+.history-table-incomes th {
+    background-color: #27ae60;
     color: aliceblue;
     font-weight: 700;
+    line-height: 20px;
+    height: 35px;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .history-page-choose {

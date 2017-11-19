@@ -24,11 +24,11 @@
                <span>INCOMES</span>
                 <table>
                     <tr>
-                        <th>date</th>
-                        <th>sum</th>
-                        <th>type</th>
-                        <th>source</th>
-                        <th>comments</th>
+                        <th>Date</th>
+                        <th>Sum</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                        <th>Comments</th>
                     </tr>
                     <tr ng-repeat="a in tablesInc | filter: dataFilter">
                         <td>{{a.dateIncomes}}</td>
@@ -45,12 +45,12 @@
                <span>EXPENSES</span>
                 <table>
                     <tr>
-                        <th>date</th>
-                        <th>sum</th>
-                        <th>type</th>
-                        <th>source</th>
-                        <th>for</th>
-                        <th>comments</th>
+                        <th>Date</th>
+                        <th>Sum</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                        <th>For</th>
+                        <th>Comments</th>
                     </tr>
                     <tr ng-repeat="b in tablesExp | filter: dataFilter">
                         <td>{{b.dateExpenses}}</td>
