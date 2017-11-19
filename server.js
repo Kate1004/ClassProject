@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456',
-    database: 'my_project'
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "my_project"
 });
 
-
+connection.connect();
 //авторизація
 app.post('/loginUser', function (req, res) {
     connection.query('SELECT * FROM users  WHERE login = ?', req.body.login, function (err, rows) {
@@ -138,8 +138,48 @@ app.post('userExpenses', function (req, res) {
     }
      );   
     });
-
-
+//запит Отримуєм всі сорси юзера +
+app.get('/getIncomes', function (req, res) {
+			connection.query('SELECT * FROM sources WHERE id_users = ? AND dateSource LIKE ?', [req.query.uid, '%' + req.query.year], function (err, resu, fld) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});
+// отримуєм суми +
+app.get('/getIncomesSum', function (req, res) {
+			connection.query('SELECT * FROM incomes WHERE id_users = ? AND dateIncomes LIKE ?', [req.query.uid, '%'+req.query.year], function (err, resu, fld) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});
+//отримуєм суми по окремому типу +
+/*app.get('/getIncomeSum', function (req, res) {
+			connection.query('SELECT * FROM incomes WHERE id_users = ? AND id_sources = ?', [req.query.uid, req.query.sid], function (err, resu) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});*/
+//отримуєм назви витрат +
+app.get('/getCatExpenses', function (req, res) {
+			connection.query('SELECT * FROM catexpenses WHERE id_users = ?', [req.query.uid], function (err, resu, fld) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});
+// отримуєм витрати +
+app.get('/getExpenses', function (req, res) {
+			connection.query('SELECT * FROM expenses WHERE id_users = ? AND dateExpenses LIKE ?', [req.query.uid, '%'+req.query.year], function (err, resu, fld) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});
+// отримуєм збереження +
+app.get('/getSaves', function (req, res) {
+			connection.query('SELECT * FROM saves WHERE id_users = ? AND dateSaves LIKE ?', [req.query.uid, '%'+req.query.year], function (err, resu, fld) {
+                if (err) throw err;
+                res.status(200).send(resu);
+   });   
+});
 
 
 app.get('*', function (req, res) {

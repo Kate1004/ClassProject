@@ -1,21 +1,24 @@
 <div ng-show="statsBlock" class="statistics">
-    <div class="incomes">
-        <div class="time">
-            <div class="day" id="day" ng-click="selectDay()">Date</div>
+    <div>
 
-            <div class="month" id="month" ng-click="selectMonth()">Month</div>
-            <div class="year" id="year" ng-click="SelectYear()">Year</div>
+        <div class="month" id="month">
+            <input type="button" value="Jan" ng-click="monthFilter = '.01.'">
+            <input type="button" value="Feb" ng-click="monthFilter = '.02.'">
+            <input type="button" value="Mar" ng-click="monthFilter = '.03.'">
+            <input type="button" value="Apr" ng-click="monthFilter = '.04.'">
+            <input type="button" value="May" ng-click="monthFilter = '.05.'">
+            <input type="button" value="June" ng-click="monthFilter = '.06.'">
+            <input type="button" value="Jul" ng-click="monthFilter = '.07.'">
+            <input type="button" value="Aug" ng-click="monthFilter = '.08.'">
+            <input type="button" value="Sept" ng-click="monthFilter = '.09.'">
+            <input type="button" value="Oct" ng-click="monthFilter = '.10.'">
+            <input type="button" value="Nov" ng-click="monthFilter = '.11.'">
+            <input type="button" value="Dec" ng-click="monthFilter = '.12.'">
+            <input type="button" value="Total" ng-click="total()">
         </div>
-        <div class="selectTime">
-            <select ng-model="selectedDay" ng-options="day for day in dates" ng-show="day" class="selectForm">
-</select>
-            <select ng-model="selectedMonth" ng-options="month for month in months" ng-show="month" class="selectForm">
-</select>
-            <select ng-model="selectedYear" ng-options="year for year in years" ng-show="year" class="selectForm">
-</select>
-        </div>
+
         <div class="diagrams">
-            <div id="piechartY"></div>
+            <div id="piechartI"></div>
             <div id="piechartE"></div>
             <div id="savings"></div>
         </div>

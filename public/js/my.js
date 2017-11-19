@@ -273,99 +273,48 @@ app.directive('statsBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/statistic.html',
-        controller: function ($scope) {
+        controller: function ($scope, $http) {
             $scope.day = true;
-            $scope.dates = [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                 "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "13",
-                "14",
-                 "15",
-                "16",
-                "17",
-                "18",
-                "19",
-                "20",
-                "21",
-                "22",
-                "23",
-                "24",
-                "25",
-                "26",
-                "27",
-                "28",
-                "29",
-                "30",
-                "31"
 
-            ],
-                $scope.months = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            ],
-                $scope.years = [
-                "2017",
-                "2018",
-                "2019",
-                "2020"
-            ]
-            $scope.selectDay = function () {
-                $scope.day = true;
-                $scope.month = false;
-                $scope.year = false;
-
-            }
-            $scope.selectMonth = function () {
-                $scope.day = false;
-                $scope.month = true;
-                $scope.year = false;
-            }
-            $scope.SelectYear = function () {
-                $scope.day = false;
-                $scope.month = false;
-                $scope.year = true;
-            }
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
             // incomes
+            google.charts.load("current", {
+                packages: ["corechart"]
+            });
             google.charts.setOnLoadCallback(drawChartI);
 
             function drawChartI() {
-
-                var dataI = google.visualization.arrayToDataTable([
-          ['id_incomes', 'total'],
-          ['freelance', 11],
-          ['deposits', 2],
-          ['rents', 2],
-          ['gifts', 7]
-        ]);
+                var DataI = function () {
+                    var a1 = [], a2 = [];
+                    var rt = [];
+                    rt.push(['id_incomes', 'total']);
+                    $.ajax({
+                        url: "/getIncomes?uid=1&year=2017",
+                        async: false,
+                        success: function (data) {
+                            a1 = Array.from(data);
+                        }
+                    });
+                    $.ajax({
+                        url: "/getIncomesSum?uid=1&year=2017",
+                        async: false,
+                        success: function (data) {
+                            a2 = Array.from(data);
+                        }
+                    });
+                    
+                    for(var i = 0; i < a2.length; i++){
+                        rt.push([a1[i]["nameSource"],a2[i]["sumIncomes"]]);
+                    }
+                    
+                    return rt;
+                };
+                var dataI = google.visualization.arrayToDataTable(DataI());
 
                 var optionsI = {
                     title: 'Incomes'
                 };
 
-                var chartI = new google.visualization.PieChart(document.getElementById('piechartY'));
+                var chartI = new google.visualization.PieChart(document.getElementById('piechartI'));
 
                 chartI.draw(dataI, optionsI);
             }
@@ -374,15 +323,33 @@ app.directive('statsBlock', function () {
             google.charts.setOnLoadCallback(drawChartE);
 
             function drawChartE() {
-
-                var dataE = google.visualization.arrayToDataTable([
-                    ['id_exp', 'total'],
-                    ['Work', 11],
-                    ['House', 2],
-                    ['Foot', 2],
-                    ['Dog', 2],
-                    ['Phone', 7]
-                ]);
+                var DataE = function () {
+                    var a1 = [];
+                    var a2 = [];
+                    var rt = [];
+                    rt.push(['id_expenses', 'total']);
+                    $.ajax({
+                        url: "/getExpenses?uid=1&year=2017",
+                        async: false,
+                        success: function (data) {
+                            a1 = Array.from(data);
+                        }
+                    });
+                    $.ajax({
+                        url: "/getCatExpenses?uid=1",
+                        async: false,
+                        success: function (data) {
+                            a2 = Array.from(data);
+                        }
+                    });
+                    
+                    for(var i = 0; i < a1.length; i++){
+                        rt.push([a2[i]["nameCatExp"],a1[i]["sumExpenses"]]);
+                    }
+                    
+                    return rt;
+                }
+                var dataE = google.visualization.arrayToDataTable(DataE());
 
                 var optionsE = {
                     title: 'Expenses'
@@ -400,13 +367,27 @@ app.directive('statsBlock', function () {
             google.charts.setOnLoadCallback(drawChart);
 
             function drawChart() {
-                var dataS = google.visualization.arrayToDataTable([
-                    ['ID', '%'],
-                    ['Cash', 11],
-                    ['Credit', 2],
-                    ['Socks', 2],
-                    ['etc', 2]
-                ]);
+                
+                   var DataS = function () {
+                    var a1 = [];
+                    var rt = [];
+                    rt.push(['id_saves', 'total']);
+                    $.ajax({
+                        url: "/getSaves?uid=1&year=2017",
+                        async: false,
+                        success: function (data) {
+                            a1 = Array.from(data);
+                        }
+                    });
+                    
+                    for(var i = 0; i < a1.length; i++){
+                        rt.push([a1[i]["nameSaves"],a1[i]["sumSaves"]]);
+                    }
+                    
+                    return rt;
+                }
+                
+                var dataS = google.visualization.arrayToDataTable(DataS());
 
                 var optionsS = {
                     title: 'Savings',
@@ -416,6 +397,7 @@ app.directive('statsBlock', function () {
                 var chartS = new google.visualization.PieChart(document.getElementById('savings'));
                 chartS.draw(dataS, optionsS);
             }
+
 
         }
     }
