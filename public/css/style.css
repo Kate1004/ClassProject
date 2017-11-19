@@ -532,7 +532,6 @@ input {
 .history-page-table {
     font-size: 15px;
     text-align: center;
-    height: 200px;
 }
 
 .history-page-table table {
@@ -543,13 +542,26 @@ input {
 
 .history-page-table td {
     vertical-align: middle;
-}
-
-.history-page-table table td {
+    background-color: white;
+    line-height: 20px;
+    height: 35px;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .history-table-incomes th {
     background-color: #27ae60;
+    color: aliceblue;
+    font-weight: 700;
+    line-height: 20px;
+    height: 35px;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.history-table-expenses th {
+    background-color: #ea6153;
     color: aliceblue;
     font-weight: 700;
     line-height: 20px;
@@ -577,4 +589,8 @@ input {
 
 .history-page-choose input:hover {
     background-color: #FF1493;
+}
+
+.history-table-incomes {
+    margin-bottom: 35px;
 }
