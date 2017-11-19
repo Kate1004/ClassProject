@@ -3,12 +3,12 @@
         <div class="users-page-photo">
             <img src="#" width="250px" height="250px" />
         </div>
-        <div class="users-page-information">
-            <span>Name</span>
-            <span>Sname</span>
-            <span>email</span>
-            <span>password</span>
-            <span>age</span>
+        <div class="users-page-information" ng-repeat="a in usersInfo">
+            <span>{{a.nameUser}}</span>
+            <span>{{a.snameUser}}</span>
+            <span>{{a.eMail}}</span>
+            <span>{{a.pass}}</span>
+            <span>{{a.bDay}}</span>
         </div>
         <div class="users-page-edit">
             <input type="button" value="edit"/>

@@ -157,6 +157,15 @@ app.get('/tablesExp', function (req, res) {
     });
 });
 
+//Інформація про користувача
+app.get('/usersInformation', function (req, res) {
+    connection.query('SELECT * FROM users', function (err, rows) {
+        if (err) throw err;
+        console.log('get all users, length: ' + rows.length);
+        res.status(200).send(rows);
+    });
+});
+
 
 
 app.get('*', function (req, res) {

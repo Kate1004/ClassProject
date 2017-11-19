@@ -281,7 +281,16 @@ app.directive('accountBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/account.html',
-        controller: function ($scope) {}
+        controller: function ($scope, $http) {
+            $scope.usersInfo = [];
+            
+            $http.get('http://localhost:8000/usersInformation')
+                .then(function successCallback(response) {
+                    $scope.usersInfo = response.data;
+                }, function errorCallback(response) {
+                    console.log("Error!!!" + response.err);
+                });
+        }
     }
 });
 
