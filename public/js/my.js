@@ -420,15 +420,20 @@ app.directive('historyBlock', function () {
 
             $scope.incomesTb = true;
 
-            $scope.changeIncomes = function () {
+            $scope.changeTbIncomes = function () {
                 $scope.incomesTb = true;
                 $scope.expensesTb = false;
-            }
+            };
 
-            $scope.changeExpenses = function () {
+            $scope.changeTbExpenses = function () {
                 $scope.incomesTb = false;
                 $scope.expensesTb = true;
-            }
+            };
+            
+            $scope.changeTbAll = function() {
+                $scope.incomesTb = true;
+                $scope.expensesTb = true;
+            };
 
 
         }

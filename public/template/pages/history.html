@@ -15,19 +15,20 @@
             <input type="button" value="Dec" ng-click="dataFilter = '.12.'">
         </div>
         <div class="history-page-choose">
-            <input type="button" value="incomes" ng-click="changeIncomes()">
-            <input type="button" value="expenses" ng-click="changeExpenses()">
+            <input type="button" value="incomes" ng-click="changeTbIncomes()">
+            <input type="button" value="expenses" ng-click="changeTbExpenses()">
+            <input type="button" value="all" ng-click="changeTbAll()">
         </div>
         <div class="history-page-table">
             <div class="history-table-incomes" ng-show="incomesTb">
                <span>INCOMES</span>
                 <table>
                     <tr>
-                        <td>date</td>
-                        <td>sum</td>
-                        <td>type</td>
-                        <td>source</td>
-                        <td>comments</td>
+                        <th>date</th>
+                        <th>sum</th>
+                        <th>type</th>
+                        <th>source</th>
+                        <th>comments</th>
                     </tr>
                     <tr ng-repeat="a in tablesInc | filter: dataFilter">
                         <td>{{a.dateIncomes}}</td>
@@ -44,14 +45,14 @@
                <span>EXPENSES</span>
                 <table>
                     <tr>
-                        <td>date</td>
-                        <td>sum</td>
-                        <td>type</td>
-                        <td>source</td>
-                        <td>for</td>
-                        <td>comments</td>
+                        <th>date</th>
+                        <th>sum</th>
+                        <th>type</th>
+                        <th>source</th>
+                        <th>for</th>
+                        <th>comments</th>
                     </tr>
-                    <tr ng-repeat="b in tablesExp">
+                    <tr ng-repeat="b in tablesExp | filter: dataFilter">
                         <td>{{b.dateExpenses}}</td>
                         <td>{{b.sumExpenses}}</td>
                         <td>expences</td>
