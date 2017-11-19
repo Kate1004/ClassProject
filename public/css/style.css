@@ -513,15 +513,20 @@ input {
 /*history block*/
 .history-page-filter {
     margin-left: 170px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .history-page-filter input {
     width: 90px;
+    height: 35px;
+    background-color: #5f9ea0;
+    font-weight: 700;
+    color: aliceblue;
+    border-radius: 4%;
 }
 
 .history-page-filter input:hover {
-    background-color: yellow;
+    background-color: #FF1493;
 }
 
 .history-page-table {
@@ -539,15 +544,33 @@ input {
     vertical-align: middle;
 }
 
-.history-page-table table tr td {
+.history-page-table table td {
     border: 1px solid black; 
 }
 
-.history-page-choose {
-    margin-left: 45%;
-    margin-bottom: 40px;
+.history-page-table th {
+    border: 1px solid black;
+    background-color: #ea6153;
+    color: aliceblue;
+    font-weight: 700;
 }
 
+.history-page-choose {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.history-page-choose input {
+    width: 90px;
+    height: 35px;
+    border-radius: 4%;
+    background-color: #5f9ea0;
+    font-weight: 700;
+    color: aliceblue;
+}
+
+
+
 .history-page-choose input:hover {
-    background-color: yellow;
+    background-color: #FF1493;
 }
