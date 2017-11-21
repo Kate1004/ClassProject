@@ -274,13 +274,21 @@ app.directive('statsBlock', function () {
         replace: true,
         templateUrl: 'template/pages/statistic.html',
         controller: function ($scope, $http) {
-            $scope.day = true;
+
 
             // incomes
             google.charts.load("current", {
                 packages: ["corechart"]
             });
             google.charts.setOnLoadCallback(drawChartI);
+            
+            $scope.update = function (){
+                $scope.dateCharts = $scope.month + "2017";
+                $scope.dateChartsY = ".2017";
+                drawChartI();
+                drawChartE();
+                drawChart();
+            }
 
             function drawChartI() {
                 var DataI = function () {
@@ -288,14 +296,14 @@ app.directive('statsBlock', function () {
                     var rt = [];
                     rt.push(['id_incomes', 'total']);
                     $.ajax({
-                        url: "/getIncomes?uid=1&year=2017",
+                        url: "/getIncomes?uid=1&year="+$scope.dateCharts,
                         async: false,
                         success: function (data) {
                             a1 = Array.from(data);
                         }
                     });
                     $.ajax({
-                        url: "/getIncomesSum?uid=1&year=2017",
+                        url: "/getIncomesSum?uid=1&year="+$scope.dateCharts,
                         async: false,
                         success: function (data) {
                             a2 = Array.from(data);
@@ -329,7 +337,7 @@ app.directive('statsBlock', function () {
                     var rt = [];
                     rt.push(['id_expenses', 'total']);
                     $.ajax({
-                        url: "/getExpenses?uid=1&year=2017",
+                        url: "/getExpenses?uid=1&year="+$scope.dateCharts,
                         async: false,
                         success: function (data) {
                             a1 = Array.from(data);
@@ -373,7 +381,7 @@ app.directive('statsBlock', function () {
                     var rt = [];
                     rt.push(['id_saves', 'total']);
                     $.ajax({
-                        url: "/getSaves?uid=1&year=2017",
+                        url: "/getSaves?uid=1&year="+$scope.dateChartsY,
                         async: false,
                         success: function (data) {
                             a1 = Array.from(data);

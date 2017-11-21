@@ -1,22 +1,24 @@
 <div ng-show="statsBlock" class="statistics">
     <div>
-
         <div class="month" id="month">
-            <input type="button" value="Jan" ng-click="monthFilter = '.01.'">
-            <input type="button" value="Feb" ng-click="monthFilter = '.02.'">
-            <input type="button" value="Mar" ng-click="monthFilter = '.03.'">
-            <input type="button" value="Apr" ng-click="monthFilter = '.04.'">
-            <input type="button" value="May" ng-click="monthFilter = '.05.'">
-            <input type="button" value="June" ng-click="monthFilter = '.06.'">
-            <input type="button" value="Jul" ng-click="monthFilter = '.07.'">
-            <input type="button" value="Aug" ng-click="monthFilter = '.08.'">
-            <input type="button" value="Sept" ng-click="monthFilter = '.09.'">
-            <input type="button" value="Oct" ng-click="monthFilter = '.10.'">
-            <input type="button" value="Nov" ng-click="monthFilter = '.11.'">
-            <input type="button" value="Dec" ng-click="monthFilter = '.12.'">
-            <input type="button" value="Total" ng-click="total()">
+            <select ng-model="month" ng-change="update()">
+                <option value="." ng-click="0" checked>
+                    <strong>2017</strong>
+                </option>
+                <option ng-click="0" value=".01.">Month 01</option>
+                <option ng-click="0" value=".02.">Month 02</option>
+                <option ng-click="0" value=".03.">Month 03</option>
+                <option ng-click="0" value=".04.">Month 04</option>
+                <option ng-click="0" value=".05.">Month 05</option>
+                <option ng-click="0" value=".06.">Month 06</option>
+                <option ng-click="0" value=".07.">Month 07</option>
+                <option ng-click="0" value=".08.">Month 08</option>
+                <option ng-click="0" value=".09.">Month 09</option>
+                <option ng-click="0" value=".10.">Month 10</option>
+                <option ng-click="0" value=".11.">Month 11</option>
+                <option ng-click="0" value=".12.">Month 12</option>
+            </select>
         </div>
-
         <div class="diagrams">
             <div id="piechartI"></div>
             <div id="piechartE"></div>
