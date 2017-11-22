@@ -166,6 +166,15 @@ app.get('/usersInformation', function (req, res) {
     });
 });
 
+//Змінити дані про користувача
+app.post('/info-change', function (req, res) {
+    connection.query('UPDATE users SET nameUser = ?, snameUser = ?, eMail = ?, pass =?, bDay = ? WHERE id = ?', [req.body.nameUser, req.body.snameUser, req.body.eMail, req.body.pass, req.body.bDay, req.body.id],
+        function (err) {
+            if (err) throw err;
+        }
+    );
+    res.sendStatus(200);
+});
 
 
 app.get('*', function (req, res) {

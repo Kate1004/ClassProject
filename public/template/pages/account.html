@@ -11,7 +11,7 @@
             <span>{{a.bDay}}</span>
         </div>
         <div class="users-page-edit">
-            <input type="button" value="edit"/>
+            <input type="button" value="edit" ng-click="changeDiaInfo(a.id, a.nameUser, a.snameUser, a.eMail, a.pass, a.bDay)"/>
             <input type="button" value="delete"/>
         </div>
         <div class="users-page-source">
