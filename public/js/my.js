@@ -52,44 +52,51 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
                 {
                     id: 3,
                     name: "visa",
-                    sum: 22,
-                    date: "2017-11-07",
+                    sum: 500,
+                    date: "23.11.2017",
 
             },
                 {
                     id: 4,
                     name: "cash",
-                    sum: 12,
-                    date: "2017-11-08",
+                    sum: 9000,
+                    date: "23.11.2017",
 
             },
                 {
-                    id: 7,
+                    id: 288,
                     name: "bank",
                     sum: 10,
-                    date: "2017-11-07",
+                    date: "23.11.2017",
 
             }
         ],
             incomes: [
                 {
                     id: 2,
-                    date: "2017-11-09",
-                    sum: 200,
+                    date: "02.01.2017",
+                    sum: 100,
                     sourceId: 1,
                     comments: " text"
 
             },
                 {
                     id: 5,
-                    date: "2017-11-09",
-                    sum: 400,
+                    date: "23.11.2017",
+                    sum: 10000,
                     sourceId: 1,
                     comments: "dgf"
             },
                 {
                     id: 7,
-                    date: "2017-11-09",
+                    date: "05.09.2017",
+                    sum: 200,
+                    sourceId: 35,
+                    comments: " fhfh"
+            },
+            {
+                    id: 7,
+                    date: "09.11.2017",
                     sum: 200,
                     sourceId: 35,
                     comments: " fhfh"
@@ -98,15 +105,29 @@ app.controller('myCtrl', function ($scope, $http, ngDialog) {
             expences: [
                 {
                     id: 2,
-                    date: "2017-11-12",
-                    sum: "299",
+                    date: "20.11.2017",
+                    sum: 3000,
                     comments: "some text",
                     catExpensesId: 2
             },
                 {
                     id: 3,
-                    date: "2017-11-12",
-                    sum: "100",
+                    date: "23.10.2017",
+                    sum: 100,
+                    comments: "some text",
+                    catExpensesId: 1
+            },
+            {
+                    id: 3,
+                    date: "23.01.2017",
+                    sum: 100,
+                    comments: "some text",
+                    catExpensesId: 1
+            },
+            {
+                    id: 3,
+                    date: "22.11.2017",
+                    sum: 1000,
                     comments: "some text",
                     catExpensesId: 1
             }
@@ -164,6 +185,81 @@ app.directive('headerBlock', function () {
                     scope: $scope
                 });
             }
+
+            //Рахує всі збереження
+            $scope.CalculTotalBudget = function(){
+                let length = $scope.users[0].saves.length;
+
+                let sum = 0;
+
+                for(var i = length-1; i >= 0; i--){
+                    sum += $scope.users[0].saves[i].sum;
+                }
+
+                return $scope.totalBudget = sum;
+            }
+
+            /*обраховуємо місячні доходи*/
+            $scope.CalculMounthInc = function() {
+                let length = $scope.users[0].incomes.length;
+
+                let date = new Date()
+                let currentDate = date.getMonth() + 1;
+
+                let sum = 0;
+
+                for(var i = length-1; i >= 0; i--){
+
+                    var result = $scope.users[0].incomes[i].date.split(".");
+
+                    if( result[1] == currentDate ){
+
+                        sum += $scope.users[0].incomes[i].sum;
+                    }
+                }
+
+                return $scope.monthInc = sum;
+            }
+
+            // Обрахувати місяні витрати
+            $scope.CalculMounthExp = function() {
+                let length = $scope.users[0].expences.length;
+
+                let date = new Date()
+                let currentDate = date.getMonth() + 1;
+
+                let sum = 0;
+
+                for(var i = length-1; i >= 0; i--){
+
+                    var result = $scope.users[0].expences[i].date.split(".");
+
+                    if( result[1] == currentDate ){
+
+                        sum += $scope.users[0].expences[i].sum;
+                    }
+                }
+
+                return $scope.monthExp = sum;
+            }
+
+
+            $scope.CalculTotalBudget();
+            $scope.CalculMounthInc();
+            $scope.CalculMounthExp();
+
+            /*
+
+                incomes: [
+                {
+                    id: 2,
+                    date: "23.01.2017",
+                    sum: 200,
+                    sourceId: 1,
+                    comments: " text"
+
+
+            */
         }
     }
 });
@@ -330,6 +426,7 @@ app.directive("spendSaves", function () {
                     sum: $scope.ExpenseSum,
                     saveId: $scope.SelectedExpenseSave.id
                 }
+                
                 console.log(obj);
             }
         }

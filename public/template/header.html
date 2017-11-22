@@ -1,10 +1,9 @@
 <div id="topMenu" ng-show="headerBlock">
     <ul class="top-menu">
-            <li><a>{{count.totalBudget}}Total Budget</a></li>
-            <li><a>{{count.monthInc}}Month Income</a></li>
-            <li><a>{{count.monthExp}}Month Expenses</a></li>
-            <li><a>{{count.monthBalance}}Month Balance</a></li>
+            <li><a>Total budget: {{totalBudget}}</a></li>	<!-- всі доходи мінус витрати за весь час -->
+            <li><a>Month incomes: {{monthInc}}</a></li>								<!-- місячні доходи-->
+            <li><a>Month expences: {{monthExp}}</a></li>								<!-- місячні витрати-->
+            <li><a>Month Balance: {{monthInc - monthExp}}</a></li>						<!-- місячні доходи мінус місячні витрати-->
         <li><input type="button" value="INCOMES" ng-click = "openIncomes()"></li>
     </ul>
-    
 </div>
