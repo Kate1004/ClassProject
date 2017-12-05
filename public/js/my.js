@@ -363,19 +363,26 @@ app.directive('registrBlock', function () {
     return {
         replace: true,
         templateUrl: 'template/pages/registr.html',
-        controller: function ($scope) {
+        controller: function ($scope, $http) {
 
             $scope.registerAcc = function () {
                 let obj = {
-                    name: $scope.RegName,
-                    sname: $scope.RegSurname,
-                    email: $scope.RegMail,
+                    nameUser: $scope.RegName,
+                    snameUser: $scope.RegSurname,
+                    eMail: $scope.RegMail,
                     login: $scope.RegLogin,
                     pass: $scope.RegPassword,
-                    bDate: $scope.RegBDate
-                }
-
+                    bDay: $scope.RegBDate
+                };
+                         $http.post('http://localhost:8000/registrBlock', obj)
+                        .then(function successCallback() {
+                            alert("Registered " + $scope.RegLogin + "!!!");
+                        }, function errorCallback(response) {
+                            console.log("Error!!!" + response.err);
+                        });
                 console.log(obj);
+                
+                
             }
 
             $scope.closeRegAcc = function () {
